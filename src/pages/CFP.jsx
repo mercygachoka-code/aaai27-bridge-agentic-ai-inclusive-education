@@ -13,6 +13,9 @@ import {
 import PageHero from '../components/PageHero'
 import SectionLabel from '../components/SectionLabel'
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/Motion'
+import { Button } from '../components/ui/button'
+import { Badge } from '../components/ui/badge'
+import { Card, CardContent } from '../components/ui/card'
 
 const submissionTypes = [
   {
@@ -31,7 +34,7 @@ const submissionTypes = [
     title: 'Posters',
     pages: 'Emerging work',
     desc: 'Emerging research, tools, and applications of agentic AI for supporting learners with Specific Learning Disorders.',
-    badge: 'Interactive'
+    badge: 'Posters'
   },
   {
     title: 'Demonstrations',
@@ -42,10 +45,10 @@ const submissionTypes = [
 ]
 
 const dates = [
-  { label: 'Submission deadline', value: 'To be announced', status: 'Pending AoE announcement', isHighlight: false },
-  { label: 'Notification', value: 'To be announced', status: 'Review feedback delivered', isHighlight: false },
-  { label: 'Camera-ready', value: 'To be announced', status: 'Final materials due', isHighlight: false },
-  { label: 'Bridge date', value: '16–17 February 2027', status: 'Montréal, Canada (AAAI-27)', isHighlight: true },
+  { label: 'Submission deadline', value: 'To be announced.', status: 'AoE', isHighlight: false },
+  { label: 'Notification', value: 'To be announced.', status: 'AoE', isHighlight: false },
+  { label: 'Camera-ready', value: 'To be announced.', status: 'AoE', isHighlight: false },
+  { label: 'Bridge date', value: '16–17 February 2027.', status: 'Montréal, Canada', isHighlight: true },
 ]
 
 const topicsList = [
@@ -78,11 +81,11 @@ export default function CFP() {
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-5 sm:px-8">
           <FadeIn>
-            <div className="bg-[#FAFBFD] rounded-xl p-8 sm:p-12 border border-gray-200 relative overflow-hidden">
+            <Card className="bg-[#FAFBFD] p-8 sm:p-12 border-gray-200 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-[#159A9C]" />
               
               <h2 className="text-xl sm:text-2xl font-display font-bold text-[#243B6B] mb-4">
-                Call for Participation
+                Call for Participation (CFP)
               </h2>
 
               <p className="text-[#556275] leading-relaxed text-base sm:text-lg mb-6">
@@ -95,7 +98,7 @@ export default function CFP() {
                   Submissions will be reviewed by the Bridge organising committee.
                 </span>
               </div>
-            </div>
+            </Card>
           </FadeIn>
         </div>
       </section>
@@ -105,7 +108,7 @@ export default function CFP() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="max-w-3xl mb-12">
             <FadeIn>
-              <SectionLabel label="Author Guidelines" />
+              <SectionLabel label="Guidelines" />
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-3">
                 Submission Guidelines
               </h2>
@@ -116,15 +119,15 @@ export default function CFP() {
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
             {submissionTypes.map((t, idx) => (
               <StaggerItem key={idx}>
-                <div className="h-full bg-white rounded-xl p-6 border border-gray-200 flex flex-col justify-between card-hover">
+                <Card className="h-full p-6 border-gray-200 flex flex-col justify-between card-hover bg-white">
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-xs font-bold font-mono px-2 py-0.5 rounded bg-[#243B6B]/5 text-[#243B6B]">
                         {t.pages}
                       </span>
-                      <span className="text-[11px] font-semibold text-[#159A9C] bg-[#159A9C]/10 px-2 py-0.5 rounded">
+                      <Badge variant="secondary" className="text-[11px]">
                         {t.badge}
-                      </span>
+                      </Badge>
                     </div>
                     <h3 className="font-bold text-[#243B6B] text-base mb-2">
                       {t.title}
@@ -133,7 +136,7 @@ export default function CFP() {
                       {t.desc}
                     </p>
                   </div>
-                </div>
+                </Card>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -142,13 +145,13 @@ export default function CFP() {
           <div className="grid md:grid-cols-3 gap-5">
             
             <FadeIn delay={0.1}>
-              <div className="h-full bg-white rounded-xl p-6 border border-gray-200">
+              <Card className="h-full p-6 border-gray-200 bg-white">
                 <div className="w-8 h-8 rounded-lg bg-[#243B6B]/5 flex items-center justify-center text-[#243B6B] mb-3">
                   <FileText className="w-4 h-4" />
                 </div>
                 <h3 className="font-bold text-[#243B6B] text-sm mb-2">Format</h3>
                 <p className="text-xs text-[#556275] leading-relaxed mb-3">
-                  AAAI Bridge format.
+                  AAAI Bridge format (https://aaai.org/conference/aaai/aaai-27/bridge-program-call-for-proposals/).
                 </p>
                 <a
                   href="https://aaai.org/conference/aaai/aaai-27/bridge-program-call-for-proposals/"
@@ -156,14 +159,14 @@ export default function CFP() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#159A9C] hover:text-[#0F7577] transition-colors"
                 >
-                  <span>AAAI Bridge Program Guidelines</span>
+                  <span>AAAI Bridge format guidelines</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
-              </div>
+              </Card>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="h-full bg-white rounded-xl p-6 border border-gray-200">
+              <Card className="h-full p-6 border-gray-200 bg-white">
                 <div className="w-8 h-8 rounded-lg bg-[#159A9C]/10 flex items-center justify-center text-[#159A9C] mb-3">
                   <Layers className="w-4 h-4" />
                 </div>
@@ -171,11 +174,11 @@ export default function CFP() {
                 <p className="text-xs text-[#556275] leading-relaxed">
                   Contributions may include relevant research findings, practical experiences, design concepts, emerging ideas, or position statements that stimulate discussion and inform the workshop’s research agenda.
                 </p>
-              </div>
+              </Card>
             </FadeIn>
 
             <FadeIn delay={0.3}>
-              <div className="h-full bg-white rounded-xl p-6 border border-gray-200">
+              <Card className="h-full p-6 border-gray-200 bg-white">
                 <div className="w-8 h-8 rounded-lg bg-[#F2B84B]/20 flex items-center justify-center text-[#D49C35] mb-3">
                   <HelpCircle className="w-4 h-4" />
                 </div>
@@ -183,24 +186,24 @@ export default function CFP() {
                 <p className="text-xs text-[#556275] leading-relaxed">
                   Include relevant references where necessary. References are excluded from the page limit.
                 </p>
-              </div>
+              </Card>
             </FadeIn>
 
           </div>
 
           {/* Submission Site Card */}
           <FadeIn delay={0.3}>
-            <div className="mt-8 bg-white rounded-xl p-8 border border-gray-200 text-center max-w-xl mx-auto">
+            <Card className="mt-8 p-8 border-gray-200 text-center max-w-xl mx-auto bg-white">
               <span className="text-xs font-mono uppercase tracking-wider text-[#8E9BAE] block mb-1">Submission site</span>
-              <h3 className="text-lg font-bold text-[#243B6B] mb-2">EasyChair Portal</h3>
+              <h3 className="text-lg font-bold text-[#243B6B] mb-2">[EasyChair link to be added.]</h3>
               <p className="text-xs text-[#556275] mb-4">
-                Submissions will be managed through EasyChair.
+                Submissions will be managed centrally by the EasyChair portal.
               </p>
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gray-100 text-[#556275] text-xs font-semibold cursor-not-allowed">
+              <Button variant="outline" disabled className="gap-2 text-xs">
                 <Clock className="w-4 h-4" />
-                <span>[EasyChair link to be added]</span>
-              </div>
-            </div>
+                <span>[EasyChair link to be added.]</span>
+              </Button>
+            </Card>
           </FadeIn>
 
         </div>
@@ -211,7 +214,7 @@ export default function CFP() {
         <div className="max-w-5xl mx-auto px-5 sm:px-8">
           <div className="max-w-3xl mb-10">
             <FadeIn>
-              <SectionLabel label="AoE Schedule" />
+              <SectionLabel label="Timeline" />
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-2">
                 Key Dates (AoE)
               </h2>
@@ -221,8 +224,8 @@ export default function CFP() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {dates.map((d, idx) => (
               <FadeIn key={idx} delay={idx * 0.08}>
-                <div 
-                  className={`h-full rounded-xl p-5 border ${
+                <Card 
+                  className={`h-full p-5 border ${
                     d.isHighlight 
                       ? 'bg-[#243B6B] text-white border-[#243B6B]' 
                       : 'bg-[#FAFBFD] border-gray-200'
@@ -230,11 +233,9 @@ export default function CFP() {
                 >
                   <div className="flex items-center justify-between mb-3">
                     <Calendar className={`w-4 h-4 ${d.isHighlight ? 'text-[#F2B84B]' : 'text-[#159A9C]'}`} />
-                    <span className={`text-[10px] font-mono uppercase px-2 py-0.5 rounded ${
-                      d.isHighlight ? 'bg-white/10 text-[#F2B84B]' : 'bg-gray-100 text-[#556275]'
-                    }`}>
-                      AoE
-                    </span>
+                    <Badge variant={d.isHighlight ? "gold" : "outline"} className="text-[10px]">
+                      {d.status}
+                    </Badge>
                   </div>
 
                   <h3 className={`font-semibold text-xs mb-1 ${d.isHighlight ? 'text-white/80' : 'text-[#556275]'}`}>
@@ -244,7 +245,7 @@ export default function CFP() {
                   <div className={`text-base sm:text-lg font-bold font-display mb-1 ${d.isHighlight ? 'text-[#F2B84B]' : 'text-[#243B6B]'}`}>
                     {d.value}
                   </div>
-                </div>
+                </Card>
               </FadeIn>
             ))}
           </div>
@@ -255,8 +256,8 @@ export default function CFP() {
       <section className="py-16 sm:py-20 bg-[#F4F6FA]">
         <div className="max-w-5xl mx-auto px-5 sm:px-8">
           <FadeIn>
-            <div className="bg-white rounded-xl p-8 sm:p-12 border border-gray-200">
-              <SectionLabel label="Topics Covered" />
+            <Card className="p-8 sm:p-12 border-gray-200 bg-white">
+              <SectionLabel label="Scope" />
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-[#243B6B] mb-6">
                 Topics of Interest
               </h2>
@@ -274,7 +275,7 @@ export default function CFP() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Card>
           </FadeIn>
         </div>
       </section>
@@ -292,12 +293,11 @@ export default function CFP() {
             <p className="text-[#556275] text-sm sm:text-base leading-relaxed mb-6">
               Attendance is open to AI researchers, HCI and accessibility specialists, educators, special education practitioners, teacher educators, students, and early-career researchers. On-site space is limited to encourage active discussion and community-building.
             </p>
-            <a
-              href="mailto:mgachoka@uef.fi?subject=Bridge%2021%20Inquiry"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#243B6B] hover:bg-[#1C2E52] text-white font-bold text-sm tracking-wide transition-all active:scale-[0.98]"
-            >
-              <span>Contact Organisers</span>
-              <ArrowRight className="w-4 h-4" />
+            <a href="mailto:mgachoka@uef.fi">
+              <Button variant="default" size="lg" className="gap-2">
+                <span>Contact Organisers</span>
+                <ArrowRight className="w-4 h-4" />
+              </Button>
             </a>
           </FadeIn>
         </div>

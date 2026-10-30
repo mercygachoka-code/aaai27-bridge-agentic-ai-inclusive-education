@@ -1,8 +1,18 @@
 import { motion } from 'framer-motion'
-import { Mail, Building2, MapPin } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import SectionLabel from '../components/SectionLabel'
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/Motion'
+import { Card } from '../components/ui/card'
+import { Badge } from '../components/ui/badge'
+import { 
+  Table, 
+  TableHeader, 
+  TableBody, 
+  TableRow, 
+  TableHead, 
+  TableCell 
+} from '../components/ui/table'
 
 const committeeMembers = [
   {
@@ -56,17 +66,19 @@ export default function Committee() {
             </FadeIn>
           </div>
 
-          {/* Cards format */}
+          {/* Cards format using shadcn Card */}
           <StaggerContainer className="grid md:grid-cols-3 gap-6 mb-12">
             {committeeMembers.map((member, idx) => (
               <StaggerItem key={idx}>
-                <div className="h-full bg-[#FAFBFD] rounded-xl p-6 border border-gray-200 card-hover flex flex-col justify-between">
+                <Card className="h-full bg-[#FAFBFD] p-6 border-gray-200 card-hover flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <div className={`w-12 h-12 rounded-lg ${member.accentBg} flex items-center justify-center text-white font-bold text-base`}>
                         {member.initials}
                       </div>
-                      <span className="text-[10px] font-mono text-[#8E9BAE] uppercase">Bridge 21</span>
+                      <Badge variant="outline" className="text-[10px]">
+                        Bridge 21
+                      </Badge>
                     </div>
 
                     <h3 className="text-lg font-bold text-[#243B6B] mb-1 font-display">
@@ -87,41 +99,36 @@ export default function Committee() {
                       <span>{member.email}</span>
                     </a>
                   </div>
-                </div>
+                </Card>
               </StaggerItem>
             ))}
           </StaggerContainer>
 
-          {/* Clean Academic Table Format */}
+          {/* Table using shadcn Table */}
           <FadeIn delay={0.2}>
             <div className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm mt-8">
-              <div className="bg-[#F4F6FA] px-6 py-3 border-b border-gray-200">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#243B6B]">Committee Directory</h3>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs sm:text-sm">
-                  <thead className="bg-[#FAFBFD] border-b border-gray-200 text-[#556275] font-semibold">
-                    <tr>
-                      <th className="py-3 px-6">Name</th>
-                      <th className="py-3 px-6">Affiliation</th>
-                      <th className="py-3 px-6">Email</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {committeeMembers.map((m, i) => (
-                      <tr key={i} className="hover:bg-[#FAFBFD]">
-                        <td className="py-3.5 px-6 font-semibold text-[#243B6B]">{m.name}</td>
-                        <td className="py-3.5 px-6 text-[#556275]">{m.affiliation}</td>
-                        <td className="py-3.5 px-6">
-                          <a href={`mailto:${m.email}`} className="text-[#159A9C] hover:underline font-medium">
-                            {m.email}
-                          </a>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <Table>
+                <TableHeader>
+                  <TableRow className="border-none hover:bg-transparent">
+                    <TableHead>Name</TableHead>
+                    <TableHead>Affiliation</TableHead>
+                    <TableHead>Email</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {committeeMembers.map((m, i) => (
+                    <TableRow key={i}>
+                      <TableCell className="font-semibold text-[#243B6B]">{m.name}</TableCell>
+                      <TableCell className="text-[#556275]">{m.affiliation}</TableCell>
+                      <TableCell>
+                        <a href={`mailto:${m.email}`} className="text-[#159A9C] hover:underline font-medium">
+                          {m.email}
+                        </a>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
           </FadeIn>
 

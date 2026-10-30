@@ -25,97 +25,108 @@ import {
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/Motion'
 import SectionLabel from '../components/SectionLabel'
 import SubtleConstellationCanvas from '../components/SubtleConstellationCanvas'
+import { TracingBeam } from '../components/ui/tracing-beam'
+import { Button } from '../components/ui/button'
+import { Badge } from '../components/ui/badge'
+import { Card, CardContent } from '../components/ui/card'
 
 const topics = [
   { 
     icon: Bot, 
-    title: 'Agentic AI & Multi-Agent Systems', 
+    title: 'Agentic AI and multi-agent systems for inclusive K–12 education', 
     desc: 'Autonomous coordinated agents facilitating inclusive K–12 classroom contexts.' 
   },
   { 
     icon: UserCheck, 
-    title: 'Teacher Agency, Autonomy & Oversight', 
+    title: 'Teacher agency, AI autonomy, and human oversight', 
     desc: 'Preserving human authority, intentional pedagogical choices, and supervision.' 
   },
   { 
     icon: GraduationCap, 
-    title: 'Differentiated & Personalised Instruction', 
+    title: 'AI-supported differentiated instruction and personalised learning', 
     desc: 'Adaptive instruction addressing distinct learner pacing, cognitive styles, and needs.' 
   },
   { 
     icon: Accessibility, 
-    title: 'Accessible Learning Resources for SLDs', 
+    title: 'Accessible learning-resource development for learners with SLDs', 
     desc: 'Curricula and multi-sensory materials tailored for dyslexia, dyscalculia, and dysgraphia.' 
   },
   { 
     icon: MonitorSmartphone, 
-    title: 'Human–AI Interaction in Special Education', 
+    title: 'Human–AI interaction in special and inclusive education', 
     desc: 'Natural, accessible, and intuitive interfaces designed alongside specialist practitioners.' 
   },
   { 
     icon: Users2, 
-    title: 'Teacher-Centred Participatory Co-Design', 
+    title: 'Teacher-centred and participatory co-design approaches', 
     desc: 'Centering teachers from ideation to evaluation in genuine peer co-creation workflows.' 
   },
   { 
     icon: BookOpen, 
-    title: 'Instructional Planning & Classroom Workflows', 
+    title: 'AI-supported instructional planning and classroom workflows', 
     desc: 'Pragmatic agentic support reducing administrative burdens and lesson preparation friction.' 
   },
   { 
     icon: ShieldCheck, 
-    title: 'Responsible, Transparent & Accountable AI', 
+    title: 'Responsible, transparent, and accountable educational AI', 
     desc: 'Safeguarding ethics, safety, explainability, and pedagogical integrity.' 
   },
   { 
+    icon: Accessibility, 
+    title: 'Accessibility, usability, and inclusive technology design', 
+    desc: 'Universal design principles ensuring seamless access across diverse abilities.' 
+  },
+  { 
     icon: Globe2, 
-    title: 'Context-Sensitive Low-Resource Design', 
+    title: 'Context-sensitive AI design for low-resource educational settings', 
     desc: 'Hardware frugality, low-bandwidth resilience, device sharing, and offline sustainability.' 
   },
   { 
+    icon: Globe2, 
+    title: 'Affordability, limited connectivity, infrastructure constraints, and sustainability', 
+    desc: 'Real-world deployment feasibility within resource-constrained schools.' 
+  },
+  { 
+    icon: CheckCircle2, 
+    title: 'Teacher-informed evaluation of AI-supported educational systems', 
+    desc: 'Rigorous empirical evaluation driven by classroom realities and teacher feedback.' 
+  },
+  { 
     icon: Network, 
-    title: 'Interdisciplinary Cross-Domain Synergy', 
-    desc: 'Unifying AI, HCI, special education practitioners, and teacher educators.' 
+    title: 'Collaboration across AI, HCI, special education, and teacher education', 
+    desc: 'Unifying technical creators, pedagogical experts, and front-line educators.' 
   },
   { 
     icon: Compass, 
-    title: 'Empirical Frameworks & Design Principles', 
-    desc: 'Establishing sustainable theoretical and practical foundations for inclusive agentic AI.' 
+    title: 'Research frameworks and design principles for human-centred agentic AI in inclusive education', 
+    desc: 'Establishing sustainable theoretical and practical foundations.' 
   },
 ]
 
 const formatItems = [
   { 
-    time: '1 hour', 
-    title: 'Keynote and Research Presentations', 
+    time: '1h', 
+    title: 'Keynote and research presentations', 
     desc: 'Agentic AI capabilities, inclusive education, teacher agency, human–AI interaction, and participatory design.',
     icon: Sparkles,
-    badge: 'Inspiration & Foundations',
-    badgeBg: 'bg-[#243B6B] text-white'
   },
   { 
-    time: '30 mins', 
-    title: 'Posters and Demonstrations', 
+    time: '30 min', 
+    title: 'Posters and demonstrations', 
     desc: 'Emerging research, tools, and applications of agentic AI for supporting learners with Specific Learning Disorders.',
     icon: Presentation,
-    badge: 'Hands-on Tools',
-    badgeBg: 'bg-[#159A9C] text-white'
   },
   { 
-    time: '1h 40 mins', 
-    title: 'Interactive Workshop and Co-Design', 
+    time: '1h 40 min', 
+    title: 'Interactive workshop and co-design', 
     desc: 'Interdisciplinary activities, group discussions, and presentations exploring teacher-support needs, AI autonomy, human oversight, and research priorities.',
     icon: Users2,
-    badge: 'Co-Creation',
-    badgeBg: 'bg-[#F2B84B] text-[#1C2E52]'
   },
   { 
-    time: '30 mins', 
-    title: 'Panel Discussion', 
-    desc: '“How Can Agentic AI Support Inclusive K–12 Education While Preserving Teacher Agency and Human Oversight?”',
+    time: '30 min', 
+    title: 'Panel discussion', 
+    desc: 'How Can Agentic AI Support Inclusive K–12 Education While Preserving Teacher Agency and Human Oversight?',
     icon: Network,
-    badge: 'Synthesis & Future Outlook',
-    badgeBg: 'bg-[#243B6B] text-white'
   },
 ]
 
@@ -131,7 +142,7 @@ export default function Home() {
       {/* ═══ HERO WITH SOLID ACADEMIC DEEP INDIGO ═══ */}
       <header className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-[#243B6B] text-white">
         
-        {/* Subtle, benign 3D network animation */}
+        {/* Subtle Three.js-style 2D canvas network */}
         <SubtleConstellationCanvas />
 
         <div className="relative max-w-6xl mx-auto px-5 sm:px-8 py-28 sm:py-32 z-10 w-full text-center lg:text-left">
@@ -148,7 +159,7 @@ export default function Home() {
                 <span className="w-2 h-2 rounded-full bg-[#F2B84B]" />
                 <span className="font-bold text-[#F2B84B]">BRIDGE 21</span>
                 <span className="text-white/40">|</span>
-                <span className="text-white/90">AAAI-27 Bridge Program</span>
+                <span className="text-white/90">AAAI-27</span>
               </motion.div>
 
               <motion.h1
@@ -178,15 +189,11 @@ export default function Home() {
               >
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 border border-white/15">
                   <MapPin className="w-4 h-4 text-[#159A9C]" />
-                  <span>Montréal, Canada</span>
+                  <span>Montréal, Canada · 2027</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 border border-white/15">
                   <Calendar className="w-4 h-4 text-[#F2B84B]" />
                   <span>16–17 February 2027</span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 border border-white/15">
-                  <Clock className="w-4 h-4 text-[#159A9C]" />
-                  <span>Half-Day Event</span>
                 </div>
               </motion.div>
 
@@ -198,36 +205,31 @@ export default function Home() {
                 className="flex flex-wrap justify-center lg:justify-start gap-2 mb-10"
               >
                 {['Human-centred', 'Accessible', 'Collaborative', 'Responsible'].map((pill) => (
-                  <span
-                    key={pill}
-                    className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white"
-                  >
+                  <Badge key={pill} variant="outline" className="text-white bg-white/10 border-white/20">
                     {pill}
-                  </span>
+                  </Badge>
                 ))}
               </motion.div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons using shadcn Button */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="flex flex-wrap justify-center lg:justify-start gap-4"
               >
-                <Link
-                  to="/cfp"
-                  className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#F2B84B] hover:bg-[#F5C56B] text-[#1C2E52] font-bold text-sm tracking-wide transition-all shadow-md active:scale-[0.98]"
-                >
-                  <FileText className="w-4 h-4" />
-                  <span>Call for Participation</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <Link to="/cfp">
+                  <Button variant="gold" size="lg" className="gap-2">
+                    <FileText className="w-4 h-4" />
+                    <span>Call for Participation</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
                 </Link>
 
-                <a
-                  href="#overview"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 transition-all active:scale-[0.98]"
-                >
-                  Learn More
+                <a href="#overview">
+                  <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+                    Learn More
+                  </Button>
                 </a>
               </motion.div>
             </div>
@@ -242,8 +244,8 @@ export default function Home() {
               >
                 <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                   <div>
-                    <span className="text-[11px] font-mono text-[#F2B84B] uppercase tracking-wider block">Bridge Overview</span>
-                    <h2 className="text-base font-bold text-white">Program Highlights</h2>
+                    <span className="text-[11px] font-mono text-[#F2B84B] uppercase tracking-wider block">Bridge 21</span>
+                    <h2 className="text-base font-bold text-white">AI for Inclusive Education</h2>
                   </div>
                   <div className="flex gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#159A9C]" />
@@ -257,7 +259,7 @@ export default function Home() {
                     <Users2 className="w-4 h-4 text-[#159A9C] shrink-0 mt-0.5" />
                     <div>
                       <h3 className="font-semibold text-white">Cross-Disciplinary Bridge</h3>
-                      <p className="text-white/70">Connecting AI scientists, HCI specialists, and special education teachers.</p>
+                      <p className="text-white/70">Connecting AI, multi-agent systems, and special education practitioners.</p>
                     </div>
                   </div>
 
@@ -265,7 +267,7 @@ export default function Home() {
                     <Accessibility className="w-4 h-4 text-[#F2B84B] shrink-0 mt-0.5" />
                     <div>
                       <h3 className="font-semibold text-white">Focus on SLDs</h3>
-                      <p className="text-white/70">Addressing dyslexia, dyscalculia, and dysgraphia classroom needs.</p>
+                      <p className="text-white/70">Dyslexia, dyscalculia, and dysgraphia learner support.</p>
                     </div>
                   </div>
 
@@ -273,7 +275,7 @@ export default function Home() {
                     <Globe2 className="w-4 h-4 text-[#159A9C] shrink-0 mt-0.5" />
                     <div>
                       <h3 className="font-semibold text-white">Low-Resource Realities</h3>
-                      <p className="text-white/70">Context-sensitive solutions for bandwidth, hardware, and sustainability constraints.</p>
+                      <p className="text-white/70">Context-sensitive design for connectivity and hardware limits.</p>
                     </div>
                   </div>
                 </div>
@@ -289,7 +291,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Clean solid bottom accent line */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#159A9C]" />
       </header>
 
@@ -302,267 +303,207 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ OVERVIEW ═══ */}
-      <section id="overview" className="py-20 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="max-w-3xl mb-10">
-            <FadeIn>
-              <SectionLabel label="About the Bridge" />
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-4">
-                Overview
-              </h2>
-            </FadeIn>
-          </div>
-
-          <FadeIn delay={0.1}>
-            <div className="bg-[#FAFBFD] rounded-xl p-8 sm:p-12 border border-gray-200 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#159A9C]" />
-              
-              <div className="space-y-5 text-[#556275] leading-relaxed text-base sm:text-lg pl-3 sm:pl-4">
-                <p>
-                  The bridge will bring together <strong className="text-[#243B6B] font-semibold">AI and multi-agent systems researchers</strong>, <strong className="text-[#243B6B] font-semibold">AI in education and HCI specialists</strong>, <strong className="text-[#243B6B] font-semibold">special education practitioners</strong>, <strong className="text-[#243B6B] font-semibold">teacher educators</strong>, and <strong className="text-[#243B6B] font-semibold">early-career researchers</strong>.
-                </p>
-                <p>
-                  Its intended outcomes include identifying shared research challenges, developing preliminary teacher-centred design concepts, and establishing a collaborative research agenda for responsible agentic AI in inclusive education, with particular attention to the contextual realities of low-resource settings.
-                </p>
-                <p>
-                  By connecting technical innovation with pedagogical expertise and inclusive design, the bridge seeks to lay the foundation for a sustained cross-disciplinary community advancing human-centred agentic AI for inclusive K–12 education.
-                </p>
-              </div>
-
-              {/* Three Pillars */}
-              <div className="grid sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-gray-200 pl-3 sm:pl-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#159A9C]/10 flex items-center justify-center shrink-0 text-[#159A9C]">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-[#243B6B] text-sm mb-1">Teacher Agency</h3>
-                    <p className="text-xs text-[#556275] leading-normal">Ensuring educators retain decision-making authority and pedagogical direction.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#F2B84B]/20 flex items-center justify-center shrink-0 text-[#D49C35]">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-[#243B6B] text-sm mb-1">Tailored for SLDs</h3>
-                    <p className="text-xs text-[#556275] leading-normal">Targeting dyslexia, dyscalculia, and dysgraphia learning needs.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#243B6B]/10 flex items-center justify-center shrink-0 text-[#243B6B]">
-                    <CheckCircle2 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-[#243B6B] text-sm mb-1">Low-Resource Contexts</h3>
-                    <p className="text-xs text-[#556275] leading-normal">Addressing connectivity, hardware limits, and real-world sustainability.</p>
-                  </div>
-                </div>
-              </div>
+      {/* ═══ TRACING BEAM WRAPPER FOR MAIN EDITORIAL CONTENT ═══ */}
+      <TracingBeam className="px-6">
+        
+        {/* ═══ OVERVIEW ═══ */}
+        <section id="overview" className="py-20 sm:py-24">
+          <div className="max-w-5xl mx-auto">
+            <div className="max-w-3xl mb-8">
+              <FadeIn>
+                <SectionLabel label="About the Bridge" />
+                <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-4">
+                  Overview
+                </h2>
+              </FadeIn>
             </div>
-          </FadeIn>
-        </div>
-      </section>
 
-      {/* ═══ TOPICS OF INTEREST ═══ */}
-      <section className="py-20 sm:py-24 bg-[#F4F6FA]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <FadeIn>
-              <SectionLabel label="Scope & Themes" />
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-3">
-                Topics of Interest
-              </h2>
-              <p className="text-[#556275] text-sm sm:text-base">
-                Key thematic areas explored across short papers, position statements, posters, and demonstrations:
-              </p>
+            <FadeIn delay={0.1}>
+              <Card className="bg-[#FAFBFD] border-gray-200 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-[#159A9C]" />
+                <CardContent className="p-8 sm:p-12 space-y-5 text-[#556275] leading-relaxed text-base sm:text-lg pl-3 sm:pl-4">
+                  <p>
+                    The bridge will bring together AI and multi-agent systems researchers, AI in education and HCI specialists, special education practitioners, teacher educators, and early-career researchers. Its intended outcomes include identifying shared research challenges, developing preliminary teacher- centred design concepts, and establishing a collaborative research agenda for responsible agentic AI in inclusive education, with particular attention to the contextual realities of low-resource settings.
+                  </p>
+                  <p>
+                    By connecting technical innovation with pedagogical expertise and inclusive design, the bridge seeks to lay the foundation for a sustained cross-disciplinary community advancing human-centred agentic AI for inclusive K–12 education.
+                  </p>
+                </CardContent>
+              </Card>
             </FadeIn>
           </div>
+        </section>
 
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {topics.map((t, idx) => {
-              const IconComp = t.icon
-              return (
-                <StaggerItem key={idx}>
-                  <div className="h-full bg-white rounded-xl p-6 border border-gray-200 card-hover flex flex-col justify-between">
-                    <div>
-                      <div className="w-10 h-10 rounded-lg bg-[#243B6B]/5 text-[#243B6B] flex items-center justify-center mb-4">
-                        <IconComp className="w-5 h-5" />
+        {/* ═══ TOPICS OF INTEREST ═══ */}
+        <section className="py-16 sm:py-20">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-10">
+              <FadeIn>
+                <SectionLabel label="Core Themes" />
+                <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-2">
+                  Topics of Interest
+                </h2>
+                <p className="text-[#556275] text-sm sm:text-base font-medium">
+                  Key themes include:
+                </p>
+              </FadeIn>
+            </div>
+
+            <StaggerContainer className="grid sm:grid-cols-2 gap-4">
+              {topics.map((t, idx) => {
+                const IconComp = t.icon
+                return (
+                  <StaggerItem key={idx}>
+                    <Card className="h-full border-gray-200 card-hover flex items-start gap-4 p-5 bg-white">
+                      <div className="w-9 h-9 rounded-lg bg-[#243B6B]/5 text-[#243B6B] flex items-center justify-center shrink-0 mt-0.5">
+                        <IconComp className="w-4 h-4" />
                       </div>
-                      <h3 className="font-bold text-[#243B6B] text-base mb-2">
-                        {t.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#556275] leading-relaxed">
-                        {t.desc}
-                      </p>
-                    </div>
-                  </div>
-                </StaggerItem>
-              )
-            })}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* ═══ FORMAT OF BRIDGE ═══ */}
-      <section className="py-20 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="max-w-3xl mb-12">
-            <FadeIn>
-              <SectionLabel label="Event Structure" />
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-3">
-                Format of Bridge
-              </h2>
-              <p className="text-[#556275] text-base">
-                The bridge will run as a <strong>half-day event</strong> with four core sessions:
-              </p>
-            </FadeIn>
+                      <div>
+                        <h3 className="font-bold text-[#243B6B] text-sm leading-snug mb-1">
+                          {t.title}
+                        </h3>
+                        <p className="text-xs text-[#556275] leading-relaxed">
+                          {t.desc}
+                        </p>
+                      </div>
+                    </Card>
+                  </StaggerItem>
+                )
+              })}
+            </StaggerContainer>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-2 gap-5">
-            {formatItems.map((item, idx) => {
-              const ItemIcon = item.icon
-              return (
-                <FadeIn key={idx} delay={idx * 0.08}>
-                  <div className="h-full bg-[#FAFBFD] rounded-xl p-7 border border-gray-200 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-gray-200 text-[#243B6B] font-mono font-bold text-xs">
-                          <Clock className="w-3.5 h-3.5 text-[#159A9C]" />
-                          {item.time}
-                        </span>
-                        <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded ${item.badgeBg}`}>
-                          {item.badge}
-                        </span>
+        {/* ═══ FORMAT OF BRIDGE ═══ */}
+        <section className="py-16 sm:py-20">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-10">
+              <FadeIn>
+                <SectionLabel label="Event Structure" />
+                <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-3">
+                  Format of Bridge
+                </h2>
+                <p className="text-[#556275] text-base">
+                  The bridge will run as a <strong>half-day event</strong>. It will include:
+                </p>
+              </FadeIn>
+            </div>
+
+            <div className="space-y-4">
+              {formatItems.map((item, idx) => {
+                const ItemIcon = item.icon
+                return (
+                  <FadeIn key={idx} delay={idx * 0.08}>
+                    <Card className="border-gray-200 p-6 bg-white card-hover">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+                        <div className="flex items-center gap-3">
+                          <span className="font-mono font-bold text-xs px-2.5 py-1 rounded bg-[#243B6B] text-white">
+                            {item.time}
+                          </span>
+                          <h3 className="text-base sm:text-lg font-bold text-[#243B6B] font-display">
+                            {item.title}
+                          </h3>
+                        </div>
+                        <Badge variant="secondary" className="self-start sm:self-auto text-[11px]">
+                          Half-Day Program
+                        </Badge>
                       </div>
-                      <h3 className="text-lg font-bold text-[#243B6B] mb-2 font-display">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-[#556275] leading-relaxed">
+                      <p className="text-sm text-[#556275] leading-relaxed pl-0 sm:pl-12">
                         {item.desc}
                       </p>
-                    </div>
-
-                    <div className="mt-5 pt-3 border-t border-gray-200 flex items-center gap-2 text-xs text-[#243B6B] font-medium">
-                      <ItemIcon className="w-4 h-4 text-[#159A9C]" />
-                      <span>Half-Day Program Segment</span>
-                    </div>
-                  </div>
-                </FadeIn>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ ATTEND ═══ */}
-      <section className="py-20 sm:py-24 bg-[#F4F6FA]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <FadeIn>
-            <div className="bg-white rounded-xl p-8 sm:p-12 border border-gray-200">
-              <div className="grid lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-4 text-center lg:text-left">
-                  <div className="inline-block p-3.5 rounded-xl bg-[#243B6B]/5 mb-3">
-                    <Users2 className="w-8 h-8 text-[#243B6B]" />
-                  </div>
-                  <h2 className="text-2xl font-display font-bold text-[#243B6B] mb-2">Attend Bridge 21</h2>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#F2B84B]/20 text-[#1C2E52] text-xs font-bold uppercase tracking-wider">
-                    30–50 Participants
-                  </div>
-                </div>
-
-                <div className="lg:col-span-8 border-t lg:border-t-0 lg:border-l border-gray-200 lg:pl-8 space-y-3 text-[#556275] text-sm sm:text-base leading-relaxed">
-                  <p>
-                    The bridge will host <strong>30–50 participants</strong>. Attendance is open to AI researchers, educators, K–12 and special education teachers, HCI researchers, accessibility practitioners, early-career researchers, students, and other stakeholders interested in inclusive education and agentic AI.
-                  </p>
-                  <p>
-                    On-site space is limited to encourage active participation, interdisciplinary discussion, and community-building.
-                  </p>
-                  <div className="pt-2">
-                    <Link
-                      to="/schedule"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#159A9C] hover:text-[#0F7577] transition-colors"
-                    >
-                      <span>View Half-Day Schedule</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+                    </Card>
+                  </FadeIn>
+                )
+              })}
             </div>
-          </FadeIn>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* ═══ SUBMIT & REGISTER DUAL ACTION ═══ */}
-      <section className="py-20 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="grid md:grid-cols-2 gap-6">
-            
-            {/* Submit Card */}
-            <FadeIn delay={0.1}>
-              <div className="h-full bg-[#243B6B] text-white rounded-xl p-8 sm:p-10 flex flex-col justify-between">
-                <div>
-                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-[#F2B84B] mb-5">
-                    <FileText className="w-5 h-5" />
+        {/* ═══ ATTEND ═══ */}
+        <section className="py-16 sm:py-20">
+          <div className="max-w-5xl mx-auto">
+            <FadeIn>
+              <Card className="p-8 sm:p-12 border-gray-200 bg-[#FAFBFD]">
+                <div className="grid lg:grid-cols-12 gap-8 items-center">
+                  <div className="lg:col-span-4 text-center lg:text-left">
+                    <div className="inline-block p-3 rounded-lg bg-[#243B6B]/5 mb-3">
+                      <Users2 className="w-8 h-8 text-[#243B6B]" />
+                    </div>
+                    <h2 className="text-2xl font-display font-bold text-[#243B6B] mb-2">Attend</h2>
+                    <Badge variant="gold" className="text-xs">
+                      The bridge will host 30–50 participants.
+                    </Badge>
                   </div>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#F2B84B] block mb-1">Submissions Open</span>
-                  <h3 className="text-2xl font-display font-bold text-white mb-3">
-                    Submit
-                  </h3>
-                  <p className="text-white/80 text-sm leading-relaxed mb-6">
-                    We invite submission of short papers, position statements, posters, and demonstrations exploring technical, pedagogical, methodological, and practical dimensions of agentic AI for supporting learners with SLDs.
-                  </p>
-                </div>
 
+                  <div className="lg:col-span-8 border-t lg:border-t-0 lg:border-l border-gray-200 lg:pl-8 space-y-3 text-[#556275] text-sm sm:text-base leading-relaxed">
+                    <p>
+                      Attendance is open to AI researchers, educators, K–12 and special education teachers, HCI researchers, accessibility practitioners, early-career researchers, students, and other stakeholders interested in inclusive education and agentic AI.
+                    </p>
+                    <p>
+                      On-site space is limited to encourage active participation, interdisciplinary discussion, and community-building.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* ═══ SUBMIT ═══ */}
+        <section className="py-16 sm:py-20">
+          <div className="max-w-5xl mx-auto">
+            <FadeIn>
+              <Card className="p-8 sm:p-12 border-gray-200 bg-white">
+                <SectionLabel label="Contribution" />
+                <h2 className="text-2xl sm:text-3xl font-display font-bold text-[#243B6B] mb-4">
+                  Submit
+                </h2>
+                <p className="text-[#556275] text-base leading-relaxed mb-6">
+                  We invite submission of short papers, position statements, posters, and demonstrations exploring technical, pedagogical, methodological, and practical dimensions of agentic AI for supporting learners with SLDs.
+                </p>
                 <div>
-                  <Link
-                    to="/cfp"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#F2B84B] hover:bg-[#F5C56B] text-[#1C2E52] font-bold text-sm tracking-wide transition-all active:scale-[0.98]"
-                  >
-                    <span>View Submission Guidelines</span>
-                    <ArrowRight className="w-4 h-4" />
+                  <Link to="/cfp">
+                    <Button variant="default" className="gap-2">
+                      <span>View Call for Participation (CFP)</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
                   </Link>
                 </div>
-              </div>
+              </Card>
             </FadeIn>
+          </div>
+        </section>
 
-            {/* Register Card */}
-            <FadeIn delay={0.2}>
-              <div className="h-full bg-[#FAFBFD] rounded-xl p-8 sm:p-10 border border-gray-200 flex flex-col justify-between">
-                <div>
-                  <div className="w-10 h-10 rounded-lg bg-[#159A9C]/10 flex items-center justify-center text-[#159A9C] mb-5">
-                    <ExternalLink className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#159A9C] block mb-1">Central Registration</span>
-                  <h3 className="text-2xl font-display font-bold text-[#243B6B] mb-3">
-                    Register
-                  </h3>
-                  <p className="text-[#556275] text-sm leading-relaxed mb-6">
-                    Registration for AAAI-27 is managed centrally by AAAI.
-                  </p>
-                </div>
-
+        {/* ═══ REGISTER ═══ */}
+        <section className="py-16 sm:py-20">
+          <div className="max-w-5xl mx-auto">
+            <FadeIn>
+              <Card className="p-8 sm:p-12 border-gray-200 bg-[#FAFBFD]">
+                <SectionLabel label="Conference Registration" />
+                <h2 className="text-2xl sm:text-3xl font-display font-bold text-[#243B6B] mb-4">
+                  Register
+                </h2>
+                <p className="text-[#556275] text-base leading-relaxed mb-6">
+                  Registration for AAAI-27 is managed centrally by AAAI.
+                </p>
                 <div>
                   <a
                     href="https://aaai.org/conference/aaai/aaai-27/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#243B6B] hover:bg-[#1C2E52] text-white font-bold text-sm tracking-wide transition-all active:scale-[0.98]"
                   >
-                    <span>AAAI-27 Registration & More Information</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <Button variant="secondary" className="gap-2">
+                      <span>[AAAI-27 Registration & More Information – link to be added]</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </Button>
                   </a>
                 </div>
-              </div>
+              </Card>
             </FadeIn>
-
           </div>
-        </div>
-      </section>
+        </section>
+
+      </TracingBeam>
     </motion.div>
   )
 }
