@@ -90,28 +90,32 @@ const formatItems = [
     title: 'Keynote and Research Presentations', 
     desc: 'Agentic AI capabilities, inclusive education, teacher agency, human–AI interaction, and participatory design.',
     icon: Sparkles,
-    badge: 'Inspiration & Foundations'
+    badge: 'Inspiration & Foundations',
+    badgeBg: 'bg-[#243B6B] text-white'
   },
   { 
     time: '30 mins', 
     title: 'Posters and Demonstrations', 
     desc: 'Emerging research, tools, and applications of agentic AI for supporting learners with Specific Learning Disorders.',
     icon: Presentation,
-    badge: 'Hands-on Tools'
+    badge: 'Hands-on Tools',
+    badgeBg: 'bg-[#159A9C] text-white'
   },
   { 
     time: '1h 40 mins', 
     title: 'Interactive Workshop and Co-Design', 
     desc: 'Interdisciplinary activities, group discussions, and presentations exploring teacher-support needs, AI autonomy, human oversight, and research priorities.',
     icon: Users2,
-    badge: 'Co-Creation'
+    badge: 'Co-Creation',
+    badgeBg: 'bg-[#F2B84B] text-[#1C2E52]'
   },
   { 
     time: '30 mins', 
     title: 'Panel Discussion', 
     desc: '“How Can Agentic AI Support Inclusive K–12 Education While Preserving Teacher Agency and Human Oversight?”',
     icon: Network,
-    badge: 'Synthesis & Future Outlook'
+    badge: 'Synthesis & Future Outlook',
+    badgeBg: 'bg-[#243B6B] text-white'
   },
 ]
 
@@ -124,98 +128,79 @@ export default function Home() {
       transition={{ duration: 0.3 }}
       className="overflow-hidden"
     >
-      {/* ═══ HERO WITH THREE.JS CONSTELLATION ═══ */}
-      <header className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-indigo-deep text-white">
-        {/* Layered Rich Ambient Background */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#121c33] via-indigo-deep to-[#18294a]" />
-          <div className="absolute -top-32 -right-20 w-[620px] h-[620px] rounded-full bg-teal/15 blur-[120px] blob-animate" />
-          <div className="absolute bottom-0 -left-20 w-[550px] h-[550px] rounded-full bg-gold/10 blur-[130px] blob-animate-reverse" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-indigo-light/20 rounded-full blur-[160px]" />
-          
-          <div 
-            className="absolute inset-0 opacity-[0.035]" 
-            style={{ 
-              backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', 
-              backgroundSize: '36px 36px' 
-            }} 
-          />
-        </div>
-
-        {/* Interactive Three.js Benign Network Layer */}
+      {/* ═══ HERO WITH SOLID ACADEMIC DEEP INDIGO ═══ */}
+      <header className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-[#243B6B] text-white">
+        
+        {/* Subtle, benign 3D network animation */}
         <SubtleConstellationCanvas />
 
-        <div className="relative max-w-6xl mx-auto px-5 sm:px-8 py-32 sm:py-36 z-10 w-full text-center lg:text-left">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="relative max-w-6xl mx-auto px-5 sm:px-8 py-28 sm:py-32 z-10 w-full text-center lg:text-left">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
             
             {/* Left Column: Text & Hero Action */}
             <div className="lg:col-span-8">
               <motion.div
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-md text-xs sm:text-sm font-semibold tracking-wide text-white mb-6"
+                transition={{ duration: 0.6 }}
+                className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm font-semibold tracking-wide text-white mb-6"
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-gold animate-pulse" />
-                <span className="font-bold text-gold">BRIDGE 21</span>
+                <span className="w-2 h-2 rounded-full bg-[#F2B84B]" />
+                <span className="font-bold text-[#F2B84B]">BRIDGE 21</span>
                 <span className="text-white/40">|</span>
                 <span className="text-white/90">AAAI-27 Bridge Program</span>
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.7, delay: 0.1 }}
                 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold text-white leading-[1.12] mb-6 tracking-tight"
               >
-                AI for Inclusive{' '}
-                <span className="relative inline-block text-white">
-                  Education
-                  <span className="absolute left-0 -bottom-2 w-full h-[6px] bg-gradient-to-r from-teal via-gold to-teal/30 rounded-full" />
-                </span>
+                AI for Inclusive Education
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="text-lg sm:text-xl text-white/80 leading-relaxed font-light mb-8 max-w-2xl"
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-lg sm:text-xl text-white/85 leading-relaxed font-light mb-8 max-w-2xl"
               >
                 Co-Designing Agentic AI with K–12 Teachers Supporting Learners with Specific Learning Disorders in Low-Resource Settings
               </motion.p>
 
-              {/* Key Meta Badges */}
+              {/* Meta details */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm text-white/85 mb-8"
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm text-white/90 mb-8"
               >
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/[0.06] border border-white/10 backdrop-blur-sm">
-                  <MapPin className="w-4 h-4 text-teal" />
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 border border-white/15">
+                  <MapPin className="w-4 h-4 text-[#159A9C]" />
                   <span>Montréal, Canada</span>
                 </div>
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/[0.06] border border-white/10 backdrop-blur-sm">
-                  <Calendar className="w-4 h-4 text-gold" />
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 border border-white/15">
+                  <Calendar className="w-4 h-4 text-[#F2B84B]" />
                   <span>16–17 February 2027</span>
                 </div>
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white/[0.06] border border-white/10 backdrop-blur-sm">
-                  <Clock className="w-4 h-4 text-teal" />
-                  <span>Half-Day Program</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/10 border border-white/15">
+                  <Clock className="w-4 h-4 text-[#159A9C]" />
+                  <span>Half-Day Event</span>
                 </div>
               </motion.div>
 
-              {/* Core Principles */}
+              {/* Values */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex flex-wrap justify-center lg:justify-start gap-2 mb-10"
               >
                 {['Human-centred', 'Accessible', 'Collaborative', 'Responsible'].map((pill) => (
                   <span
                     key={pill}
-                    className="text-xs font-medium px-3.5 py-1.5 rounded-full bg-white/[0.07] border border-white/15 text-white/90 shadow-sm"
+                    className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white"
                   >
                     {pill}
                   </span>
@@ -224,14 +209,14 @@ export default function Home() {
 
               {/* Action Buttons */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
                 className="flex flex-wrap justify-center lg:justify-start gap-4"
               >
                 <Link
                   to="/cfp"
-                  className="group inline-flex items-center gap-2.5 px-7 py-4 rounded-xl bg-gold hover:bg-gold-light text-indigo-darker font-bold text-sm tracking-wide shadow-lg shadow-gold/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                  className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#F2B84B] hover:bg-[#F5C56B] text-[#1C2E52] font-bold text-sm tracking-wide transition-all shadow-md active:scale-[0.98]"
                 >
                   <FileText className="w-4 h-4" />
                   <span>Call for Participation</span>
@@ -240,61 +225,61 @@ export default function Home() {
 
                 <a
                   href="#overview"
-                  className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/20 backdrop-blur-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 transition-all active:scale-[0.98]"
                 >
-                  Explore Overview
+                  Learn More
                 </a>
               </motion.div>
             </div>
 
-            {/* Right Column: Visual Summary Card */}
+            {/* Right Column: Visual Summary Box */}
             <div className="lg:col-span-4 hidden lg:block">
               <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.3 }}
-                className="relative rounded-3xl p-7 bg-white/[0.07] border border-white/15 backdrop-blur-xl shadow-2xl shadow-indigo-darker/60"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="rounded-2xl p-7 bg-[#1C2E52] border border-white/15 shadow-xl"
               >
-                <div className="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
+                <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                   <div>
-                    <span className="text-xs font-mono text-gold uppercase tracking-widest block mb-0.5">Bridge Spotlight</span>
-                    <h2 className="text-lg font-bold text-white">At a Glance</h2>
+                    <span className="text-[11px] font-mono text-[#F2B84B] uppercase tracking-wider block">Bridge Overview</span>
+                    <h2 className="text-base font-bold text-white">Program Highlights</h2>
                   </div>
                   <div className="flex gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-teal" />
-                    <span className="w-3 h-3 rounded-full bg-gold" />
-                    <span className="w-3 h-3 rounded-full bg-white" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#159A9C]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#F2B84B]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-white" />
                   </div>
                 </div>
 
-                <div className="space-y-4 text-sm">
-                  <div className="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-start gap-3">
-                    <Users2 className="w-5 h-5 text-teal shrink-0 mt-0.5" />
+                <div className="space-y-3.5 text-xs">
+                  <div className="p-3 rounded-lg bg-white/5 border border-white/10 flex items-start gap-3">
+                    <Users2 className="w-4 h-4 text-[#159A9C] shrink-0 mt-0.5" />
                     <div>
-                      <h3 className="font-semibold text-white">Cross-Disciplinary Hub</h3>
-                      <p className="text-xs text-white/70">Connecting AI creators, HCI, and front-line special educators.</p>
+                      <h3 className="font-semibold text-white">Cross-Disciplinary Bridge</h3>
+                      <p className="text-white/70">Connecting AI scientists, HCI specialists, and special education teachers.</p>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-start gap-3">
-                    <Accessibility className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                  <div className="p-3 rounded-lg bg-white/5 border border-white/10 flex items-start gap-3">
+                    <Accessibility className="w-4 h-4 text-[#F2B84B] shrink-0 mt-0.5" />
                     <div>
-                      <h3 className="font-semibold text-white">Specific Learning Disorders</h3>
-                      <p className="text-xs text-white/70">Dyslexia, dyscalculia, dysgraphia support structures.</p>
+                      <h3 className="font-semibold text-white">Focus on SLDs</h3>
+                      <p className="text-white/70">Addressing dyslexia, dyscalculia, and dysgraphia classroom needs.</p>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-white/[0.05] border border-white/10 flex items-start gap-3">
-                    <Globe2 className="w-5 h-5 text-teal-light shrink-0 mt-0.5" />
+                  <div className="p-3 rounded-lg bg-white/5 border border-white/10 flex items-start gap-3">
+                    <Globe2 className="w-4 h-4 text-[#159A9C] shrink-0 mt-0.5" />
                     <div>
-                      <h3 className="font-semibold text-white">Low-Resource Contexts</h3>
-                      <p className="text-xs text-white/70">Real-world frugality, accessibility, and offline resilience.</p>
+                      <h3 className="font-semibold text-white">Low-Resource Realities</h3>
+                      <p className="text-white/70">Context-sensitive solutions for bandwidth, hardware, and sustainability constraints.</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-white/10 text-center">
-                  <p className="text-xs font-display italic text-white/70">
+                <div className="mt-5 pt-4 border-t border-white/10 text-center">
+                  <p className="text-xs font-display italic text-white/80">
                     "Building bridges between AI, teachers and inclusive learning."
                   </p>
                 </div>
@@ -304,87 +289,76 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Clean bottom transition wave */}
-        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-10">
-          <svg 
-            className="relative block w-full h-10 sm:h-14 text-warm-white" 
-            viewBox="0 0 1200 120" 
-            preserveAspectRatio="none"
-          >
-            <path 
-              d="M0,0 C150,90 350,-40 500,40 C650,120 900,10 1200,40 L1200,120 L0,120 Z" 
-              fill="currentColor"
-            />
-          </svg>
-        </div>
+        {/* Clean solid bottom accent line */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#159A9C]" />
       </header>
 
-      {/* ═══ TAGLINE STRIP ═══ */}
-      <section className="bg-cream/70 border-b border-gray-200/60 py-6">
+      {/* ═══ TAGLINE BAR ═══ */}
+      <section className="bg-[#F4F6FA] border-b border-gray-200 py-5">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
-          <p className="text-base sm:text-lg text-indigo-deep font-display italic font-medium">
+          <p className="text-base sm:text-lg text-[#243B6B] font-display italic font-medium">
             Building bridges between AI, teachers and inclusive learning.
           </p>
         </div>
       </section>
 
       {/* ═══ OVERVIEW ═══ */}
-      <section id="overview" className="py-24 sm:py-28 relative">
+      <section id="overview" className="py-20 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mb-10">
             <FadeIn>
               <SectionLabel label="About the Bridge" />
-              <h2 className="text-3xl sm:text-5xl font-display font-bold text-indigo-deep tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-4">
                 Overview
               </h2>
             </FadeIn>
           </div>
 
           <FadeIn delay={0.1}>
-            <div className="relative bg-white rounded-3xl p-8 sm:p-14 shadow-xl shadow-indigo-deep/[0.04] border border-gray-100 overflow-hidden">
-              <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-indigo-deep via-teal to-gold" />
+            <div className="bg-[#FAFBFD] rounded-xl p-8 sm:p-12 border border-gray-200 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-[#159A9C]" />
               
-              <div className="space-y-6 text-warm-gray leading-relaxed text-base sm:text-lg pl-3 sm:pl-5">
+              <div className="space-y-5 text-[#556275] leading-relaxed text-base sm:text-lg pl-3 sm:pl-4">
                 <p>
-                  The bridge will bring together <strong className="text-indigo-deep font-semibold">AI and multi-agent systems researchers</strong>, <strong className="text-indigo-deep font-semibold">AI in education and HCI specialists</strong>, <strong className="text-indigo-deep font-semibold">special education practitioners</strong>, <strong className="text-indigo-deep font-semibold">teacher educators</strong>, and <strong className="text-indigo-deep font-semibold">early-career researchers</strong>.
+                  The bridge will bring together <strong className="text-[#243B6B] font-semibold">AI and multi-agent systems researchers</strong>, <strong className="text-[#243B6B] font-semibold">AI in education and HCI specialists</strong>, <strong className="text-[#243B6B] font-semibold">special education practitioners</strong>, <strong className="text-[#243B6B] font-semibold">teacher educators</strong>, and <strong className="text-[#243B6B] font-semibold">early-career researchers</strong>.
                 </p>
                 <p>
                   Its intended outcomes include identifying shared research challenges, developing preliminary teacher-centred design concepts, and establishing a collaborative research agenda for responsible agentic AI in inclusive education, with particular attention to the contextual realities of low-resource settings.
                 </p>
-                <p className="pt-2">
+                <p>
                   By connecting technical innovation with pedagogical expertise and inclusive design, the bridge seeks to lay the foundation for a sustained cross-disciplinary community advancing human-centred agentic AI for inclusive K–12 education.
                 </p>
               </div>
 
-              {/* Pillars row */}
-              <div className="grid sm:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-100 pl-3 sm:pl-5">
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-teal/10 flex items-center justify-center shrink-0 text-teal">
+              {/* Three Pillars */}
+              <div className="grid sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-gray-200 pl-3 sm:pl-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#159A9C]/10 flex items-center justify-center shrink-0 text-[#159A9C]">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-indigo-deep text-sm mb-1">Pedagogical Agency</h3>
-                    <p className="text-xs text-warm-gray leading-normal">Keeping teachers in control while automating routine cognitive loads.</p>
+                    <h3 className="font-bold text-[#243B6B] text-sm mb-1">Teacher Agency</h3>
+                    <p className="text-xs text-[#556275] leading-normal">Ensuring educators retain decision-making authority and pedagogical direction.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-gold/15 flex items-center justify-center shrink-0 text-gold-dark">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#F2B84B]/20 flex items-center justify-center shrink-0 text-[#D49C35]">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-indigo-deep text-sm mb-1">Tailored for SLDs</h3>
-                    <p className="text-xs text-warm-gray leading-normal">Dedicated multi-agent differentiation for diverse learning profiles.</p>
+                    <h3 className="font-bold text-[#243B6B] text-sm mb-1">Tailored for SLDs</h3>
+                    <p className="text-xs text-[#556275] leading-normal">Targeting dyslexia, dyscalculia, and dysgraphia learning needs.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-indigo-deep/10 flex items-center justify-center shrink-0 text-indigo-deep">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#243B6B]/10 flex items-center justify-center shrink-0 text-[#243B6B]">
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-indigo-deep text-sm mb-1">Low-Resource Realities</h3>
-                    <p className="text-xs text-warm-gray leading-normal">Addressing connectivity, device scarcity, and localized sustainability.</p>
+                    <h3 className="font-bold text-[#243B6B] text-sm mb-1">Low-Resource Contexts</h3>
+                    <p className="text-xs text-[#556275] leading-normal">Addressing connectivity, hardware limits, and real-world sustainability.</p>
                   </div>
                 </div>
               </div>
@@ -394,40 +368,36 @@ export default function Home() {
       </section>
 
       {/* ═══ TOPICS OF INTEREST ═══ */}
-      <section className="py-24 sm:py-28 bg-[#F5F7FB] relative">
+      <section className="py-20 sm:py-24 bg-[#F4F6FA]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-14">
             <FadeIn>
-              <SectionLabel label="Research Themes" />
-              <h2 className="text-3xl sm:text-5xl font-display font-bold text-indigo-deep tracking-tight mb-4">
+              <SectionLabel label="Scope & Themes" />
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-3">
                 Topics of Interest
               </h2>
-              <p className="text-warm-gray text-base sm:text-lg">
-                Key themes exploring the technical, pedagogical, methodological, and practical dimensions of inclusive agentic AI:
+              <p className="text-[#556275] text-sm sm:text-base">
+                Key thematic areas explored across short papers, position statements, posters, and demonstrations:
               </p>
             </FadeIn>
           </div>
 
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {topics.map((t, idx) => {
               const IconComp = t.icon
               return (
                 <StaggerItem key={idx}>
-                  <div className="h-full bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-xl hover:border-teal/30 card-hover flex flex-col justify-between group">
+                  <div className="h-full bg-white rounded-xl p-6 border border-gray-200 card-hover flex flex-col justify-between">
                     <div>
-                      <div className="w-12 h-12 rounded-xl bg-indigo-deep/[0.05] group-hover:bg-teal/[0.1] text-indigo-deep group-hover:text-teal flex items-center justify-center mb-5 transition-colors">
-                        <IconComp className="w-6 h-6" />
+                      <div className="w-10 h-10 rounded-lg bg-[#243B6B]/5 text-[#243B6B] flex items-center justify-center mb-4">
+                        <IconComp className="w-5 h-5" />
                       </div>
-                      <h3 className="font-bold text-indigo-deep text-base mb-2 group-hover:text-teal transition-colors">
+                      <h3 className="font-bold text-[#243B6B] text-base mb-2">
                         {t.title}
                       </h3>
-                      <p className="text-sm text-warm-gray leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[#556275] leading-relaxed">
                         {t.desc}
                       </p>
-                    </div>
-                    <div className="mt-5 pt-4 border-t border-gray-50 flex items-center text-xs font-semibold text-teal opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span>Explore research scope</span>
-                      <ArrowRight className="w-3.5 h-3.5 ml-1" />
                     </div>
                   </div>
                 </StaggerItem>
@@ -438,47 +408,47 @@ export default function Home() {
       </section>
 
       {/* ═══ FORMAT OF BRIDGE ═══ */}
-      <section className="py-24 sm:py-28 bg-white">
+      <section className="py-20 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="max-w-3xl mb-14">
+          <div className="max-w-3xl mb-12">
             <FadeIn>
               <SectionLabel label="Event Structure" />
-              <h2 className="text-3xl sm:text-5xl font-display font-bold text-indigo-deep tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-3">
                 Format of Bridge
               </h2>
-              <p className="text-warm-gray text-base sm:text-lg">
-                The bridge will run as an engaging <strong className="text-indigo-deep font-semibold">half-day collaborative program</strong> at AAAI-27:
+              <p className="text-[#556275] text-base">
+                The bridge will run as a <strong>half-day event</strong> with four core sessions:
               </p>
             </FadeIn>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5">
             {formatItems.map((item, idx) => {
               const ItemIcon = item.icon
               return (
-                <FadeIn key={idx} delay={idx * 0.1}>
-                  <div className="h-full bg-[#FAFBFD] rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                <FadeIn key={idx} delay={idx * 0.08}>
+                  <div className="h-full bg-[#FAFBFD] rounded-xl p-7 border border-gray-200 flex flex-col justify-between">
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-deep/5 text-indigo-deep font-mono font-bold text-xs">
-                          <Clock className="w-3 h-3 text-teal" />
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-gray-200 text-[#243B6B] font-mono font-bold text-xs">
+                          <Clock className="w-3.5 h-3.5 text-[#159A9C]" />
                           {item.time}
                         </span>
-                        <span className="text-[11px] font-semibold text-teal-dark bg-teal/10 px-2.5 py-0.5 rounded-md">
+                        <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded ${item.badgeBg}`}>
                           {item.badge}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-indigo-deep mb-3 font-display">
+                      <h3 className="text-lg font-bold text-[#243B6B] mb-2 font-display">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-warm-gray leading-relaxed">
+                      <p className="text-sm text-[#556275] leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-gray-200/60 flex items-center gap-2 text-xs text-indigo-deep font-medium">
-                      <ItemIcon className="w-4 h-4 text-gold-dark" />
-                      <span>Interactive Half-Day Segment</span>
+                    <div className="mt-5 pt-3 border-t border-gray-200 flex items-center gap-2 text-xs text-[#243B6B] font-medium">
+                      <ItemIcon className="w-4 h-4 text-[#159A9C]" />
+                      <span>Half-Day Program Segment</span>
                     </div>
                   </div>
                 </FadeIn>
@@ -489,24 +459,24 @@ export default function Home() {
       </section>
 
       {/* ═══ ATTEND ═══ */}
-      <section className="py-20 sm:py-24 bg-cream/70">
+      <section className="py-20 sm:py-24 bg-[#F4F6FA]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <FadeIn>
-            <div className="bg-white rounded-3xl p-8 sm:p-14 shadow-lg shadow-indigo-deep/[0.03] border border-gray-100">
-              <div className="grid lg:grid-cols-12 gap-10 items-center">
+            <div className="bg-white rounded-xl p-8 sm:p-12 border border-gray-200">
+              <div className="grid lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-4 text-center lg:text-left">
-                  <div className="inline-block p-4 rounded-2xl bg-indigo-deep/5 mb-4">
-                    <Users2 className="w-10 h-10 text-indigo-deep" />
+                  <div className="inline-block p-3.5 rounded-xl bg-[#243B6B]/5 mb-3">
+                    <Users2 className="w-8 h-8 text-[#243B6B]" />
                   </div>
-                  <h2 className="text-3xl font-display font-bold text-indigo-deep mb-2">Attend Bridge 21</h2>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/20 text-indigo-deep text-xs font-bold uppercase tracking-wider">
-                    Limited On-Site Capacity
+                  <h2 className="text-2xl font-display font-bold text-[#243B6B] mb-2">Attend Bridge 21</h2>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#F2B84B]/20 text-[#1C2E52] text-xs font-bold uppercase tracking-wider">
+                    30–50 Participants
                   </div>
                 </div>
 
-                <div className="lg:col-span-8 border-t lg:border-t-0 lg:border-l border-gray-100 lg:pl-10 space-y-4 text-warm-gray text-base leading-relaxed">
+                <div className="lg:col-span-8 border-t lg:border-t-0 lg:border-l border-gray-200 lg:pl-8 space-y-3 text-[#556275] text-sm sm:text-base leading-relaxed">
                   <p>
-                    The bridge will host <strong className="text-indigo-deep font-semibold">30–50 participants</strong>. Attendance is open to AI researchers, educators, K–12 and special education teachers, HCI researchers, accessibility practitioners, early-career researchers, students, and other stakeholders interested in inclusive education and agentic AI.
+                    The bridge will host <strong>30–50 participants</strong>. Attendance is open to AI researchers, educators, K–12 and special education teachers, HCI researchers, accessibility practitioners, early-career researchers, students, and other stakeholders interested in inclusive education and agentic AI.
                   </p>
                   <p>
                     On-site space is limited to encourage active participation, interdisciplinary discussion, and community-building.
@@ -514,9 +484,9 @@ export default function Home() {
                   <div className="pt-2">
                     <Link
                       to="/schedule"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-teal hover:text-teal-dark transition-colors"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#159A9C] hover:text-[#0F7577] transition-colors"
                     >
-                      <span>Check the Half-Day Program Schedule</span>
+                      <span>View Half-Day Schedule</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -528,22 +498,22 @@ export default function Home() {
       </section>
 
       {/* ═══ SUBMIT & REGISTER DUAL ACTION ═══ */}
-      <section className="py-24 sm:py-28 bg-white">
+      <section className="py-20 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             
             {/* Submit Card */}
             <FadeIn delay={0.1}>
-              <div className="h-full bg-gradient-to-br from-[#1a2d52] to-indigo-deep text-white rounded-3xl p-8 sm:p-12 shadow-xl flex flex-col justify-between">
+              <div className="h-full bg-[#243B6B] text-white rounded-xl p-8 sm:p-10 flex flex-col justify-between">
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-gold mb-6">
-                    <FileText className="w-6 h-6" />
+                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-[#F2B84B] mb-5">
+                    <FileText className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-gold block mb-2">Submissions Open</span>
-                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-4">
-                    Call for Participation
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#F2B84B] block mb-1">Submissions Open</span>
+                  <h3 className="text-2xl font-display font-bold text-white mb-3">
+                    Submit
                   </h3>
-                  <p className="text-white/80 text-sm leading-relaxed mb-8">
+                  <p className="text-white/80 text-sm leading-relaxed mb-6">
                     We invite submission of short papers, position statements, posters, and demonstrations exploring technical, pedagogical, methodological, and practical dimensions of agentic AI for supporting learners with SLDs.
                   </p>
                 </div>
@@ -551,7 +521,7 @@ export default function Home() {
                 <div>
                   <Link
                     to="/cfp"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gold hover:bg-gold-light text-indigo-darker font-bold text-sm tracking-wide transition-all shadow-md active:scale-[0.98]"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#F2B84B] hover:bg-[#F5C56B] text-[#1C2E52] font-bold text-sm tracking-wide transition-all active:scale-[0.98]"
                   >
                     <span>View Submission Guidelines</span>
                     <ArrowRight className="w-4 h-4" />
@@ -562,17 +532,17 @@ export default function Home() {
 
             {/* Register Card */}
             <FadeIn delay={0.2}>
-              <div className="h-full bg-[#FAFBFD] rounded-3xl p-8 sm:p-12 border border-gray-100 shadow-sm flex flex-col justify-between">
+              <div className="h-full bg-[#FAFBFD] rounded-xl p-8 sm:p-10 border border-gray-200 flex flex-col justify-between">
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center text-teal mb-6">
-                    <ExternalLink className="w-6 h-6" />
+                  <div className="w-10 h-10 rounded-lg bg-[#159A9C]/10 flex items-center justify-center text-[#159A9C] mb-5">
+                    <ExternalLink className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-teal block mb-2">Central Registration</span>
-                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-indigo-deep mb-4">
-                    Register with AAAI-27
+                  <span className="text-xs font-mono uppercase tracking-wider text-[#159A9C] block mb-1">Central Registration</span>
+                  <h3 className="text-2xl font-display font-bold text-[#243B6B] mb-3">
+                    Register
                   </h3>
-                  <p className="text-warm-gray text-sm leading-relaxed mb-8">
-                    Registration for AAAI-27 is managed centrally by AAAI. Access full details, main conference pass categories, and workshop/bridge credentials on the official AAAI site.
+                  <p className="text-[#556275] text-sm leading-relaxed mb-6">
+                    Registration for AAAI-27 is managed centrally by AAAI.
                   </p>
                 </div>
 
@@ -581,7 +551,7 @@ export default function Home() {
                     href="https://aaai.org/conference/aaai/aaai-27/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-deep hover:bg-indigo-light text-white font-bold text-sm tracking-wide transition-all shadow-md active:scale-[0.98]"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#243B6B] hover:bg-[#1C2E52] text-white font-bold text-sm tracking-wide transition-all active:scale-[0.98]"
                   >
                     <span>AAAI-27 Registration & More Information</span>
                     <ExternalLink className="w-4 h-4" />

@@ -17,93 +17,75 @@ import { FadeIn, StaggerContainer, StaggerItem } from '../components/Motion'
 
 const scheduleData = [
   {
-    time: '8:30 – 8:45',
-    duration: '15 min',
-    title: 'Welcome, Introductions, and Bridge Objectives',
-    subtitle: 'Setting cross-disciplinary expectations and establishing community participation norms.',
+    time: '8:30–8:45',
+    title: 'Welcome, introductions, and bridge objectives',
     type: 'Opening',
     icon: CheckCircle2,
-    badgeColor: 'bg-indigo-deep text-white',
+    badgeBg: 'bg-[#243B6B] text-white',
     isBreak: false
   },
   {
-    time: '8:45 – 9:05',
-    duration: '20 min',
-    title: 'Keynote Vision Talk: Agentic AI, Teacher Agency, and Inclusive Education',
-    subtitle: 'Framing human-in-the-loop multi-agent autonomy within real-world special education classrooms.',
+    time: '8:45–9:05',
+    title: 'Keynote vision talk: Agentic AI, teacher agency, and inclusive education',
     type: 'Keynote',
     icon: Sparkles,
-    badgeColor: 'bg-gold-dark text-white',
+    badgeBg: 'bg-[#159A9C] text-white',
     isBreak: false
   },
   {
-    time: '9:05 – 9:45',
-    duration: '40 min',
-    title: 'Short Paper and Position-Statement Presentations',
-    subtitle: 'Peer-reviewed research insights, technical systems, and conceptual positions from selected authors.',
-    type: 'Oral Papers',
+    time: '9:05–9:45',
+    title: 'Short paper and position-statement presentations',
+    type: 'Presentations',
     icon: Presentation,
-    badgeColor: 'bg-teal text-white',
+    badgeBg: 'bg-[#243B6B] text-white',
     isBreak: false
   },
   {
-    time: '9:45 – 10:15',
-    duration: '30 min',
-    title: 'Poster Presentations and Demonstrations',
-    subtitle: 'Interactive gallery showcasing emerging systems, assistive tools, and practitioner implementations.',
+    time: '9:45–10:15',
+    title: 'Poster presentations and demonstrations',
     type: 'Posters & Demos',
     icon: Share2,
-    badgeColor: 'bg-teal-dark text-white',
+    badgeBg: 'bg-[#159A9C] text-white',
     isBreak: false
   },
   {
-    time: '10:15 – 10:30',
-    duration: '15 min',
-    title: 'Networking Break',
-    subtitle: 'Informal discussions, refreshments, and participant interdisciplinary connecting.',
+    time: '10:15–10:30',
+    title: 'Networking break',
     type: 'Break',
     icon: Coffee,
-    badgeColor: 'bg-warm-gray-light text-white',
+    badgeBg: 'bg-gray-200 text-[#556275]',
     isBreak: true
   },
   {
-    time: '10:30 – 11:00',
-    duration: '30 min',
-    title: 'Panel Discussion: Designing Responsible Agentic AI for Inclusive Education',
-    subtitle: 'Expert panel: “How Can Agentic AI Support Inclusive K–12 Education While Preserving Teacher Agency and Human Oversight?”',
-    type: 'Expert Panel',
+    time: '10:30–11:00',
+    title: 'Panel discussion: Designing responsible agentic AI for inclusive education',
+    type: 'Panel',
     icon: MessagesSquare,
-    badgeColor: 'bg-indigo-light text-white',
+    badgeBg: 'bg-[#243B6B] text-white',
     isBreak: false
   },
   {
-    time: '11:00 – 11:40',
-    duration: '40 min',
-    title: 'Hands-on Interdisciplinary Co-Design Activity',
-    subtitle: 'Breakout co-design teams of AI technologists, educators, and HCI specialists creating rapid prototypes.',
+    time: '11:00–11:40',
+    title: 'Hands-on interdisciplinary co-design activity',
     type: 'Workshop',
     icon: Hammer,
-    badgeColor: 'bg-gold text-indigo-darker',
+    badgeBg: 'bg-[#F2B84B] text-[#1C2E52]',
     isBreak: false
   },
   {
-    time: '11:40 – 12:10',
-    duration: '30 min',
-    title: 'Group Presentations and Discussion of Research Challenges',
-    subtitle: 'Synthesis of co-design findings, identification of shared hurdles, and low-resource constraints.',
-    type: 'Synthesis',
+    time: '11:40–12:10',
+    title: 'Group presentations and discussion of research challenges',
+    type: 'Presentations',
     icon: Users2,
-    badgeColor: 'bg-teal text-white',
+    badgeBg: 'bg-[#159A9C] text-white',
     isBreak: false
   },
   {
-    time: '12:10 – 12:30',
-    duration: '20 min',
-    title: 'Research Agenda, Community-Building Commitments, and Closing',
-    subtitle: 'Establishing post-workshop collaborations, roadmap drafting, and community action steps.',
+    time: '12:10–12:30',
+    title: 'Research agenda, community-building commitments, and closing',
     type: 'Closing',
     icon: CheckCircle2,
-    badgeColor: 'bg-indigo-deep text-white',
+    badgeBg: 'bg-[#243B6B] text-white',
     isBreak: false
   },
 ]
@@ -118,86 +100,57 @@ export default function Schedule() {
       className="overflow-hidden"
     >
       <PageHero
-        badge="Half-Day Intensive Program"
+        badge="Bridge 21"
         title="Schedule"
-        subtitle="A balanced itinerary structured to promote rich cross-disciplinary exchange, hands-on co-design, and tangible research outputs."
+        subtitle="Tentative Schedule – Half-Day"
       />
 
-      <section className="py-20 sm:py-28 bg-[#FAFBFD]">
-        <div className="max-w-5xl mx-auto px-5 sm:px-8">
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8">
           
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-6 border-b border-gray-200/80 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-gray-200 gap-4">
             <div>
-              <SectionLabel label="Agenda & Program" />
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-indigo-deep">
+              <SectionLabel label="Program" />
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-[#243B6B]">
                 Tentative Schedule – Half-Day
               </h2>
             </div>
-            <div className="flex items-center gap-2 text-xs font-semibold text-warm-gray px-3.5 py-1.5 rounded-lg bg-white border border-gray-200">
-              <Calendar className="w-4 h-4 text-teal" />
-              <span>AAAI-27 (16–17 February 2027)</span>
+            <div className="flex items-center gap-2 text-xs font-semibold text-[#556275] px-3 py-1.5 rounded bg-[#FAFBFD] border border-gray-200">
+              <Calendar className="w-4 h-4 text-[#159A9C]" />
+              <span>16–17 February 2027</span>
             </div>
           </div>
 
-          {/* Timeline List */}
-          <div className="space-y-4">
-            {scheduleData.map((item, idx) => {
-              const ItemIcon = item.icon
-              return (
-                <FadeIn key={idx} delay={idx * 0.05}>
-                  <div 
-                    className={`rounded-2xl p-6 sm:p-7 border transition-all ${
-                      item.isBreak 
-                        ? 'bg-cream/60 border-dashed border-gray-300' 
-                        : 'bg-white border-gray-100 shadow-sm hover:shadow-md'
-                    }`}
-                  >
-                    <div className="grid md:grid-cols-12 gap-5 items-start sm:items-center">
-                      
-                      {/* Time Column */}
-                      <div className="md:col-span-3 flex md:flex-col items-center md:items-start justify-between md:justify-center border-b md:border-b-0 pb-3 md:pb-0 border-gray-100">
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-teal shrink-0" />
-                          <span className="font-mono font-bold text-sm sm:text-base text-indigo-deep">
-                            {item.time}
-                          </span>
-                        </div>
-                        <span className="text-xs font-medium text-warm-gray-light mt-0.5 md:ml-6">
-                          ({item.duration})
-                        </span>
-                      </div>
+          {/* Clean Academic Table Structure */}
+          <div className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+            <div className="grid grid-cols-12 bg-[#243B6B] text-white text-xs font-semibold uppercase tracking-wider py-3.5 px-6">
+              <div className="col-span-4 sm:col-span-3">Time</div>
+              <div className="col-span-8 sm:col-span-9">Activity</div>
+            </div>
 
-                      {/* Content Column */}
-                      <div className="md:col-span-9">
-                        <div className="flex flex-wrap items-center gap-2 mb-2">
-                          <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md ${item.badgeColor}`}>
-                            {item.type}
-                          </span>
-                        </div>
-
-                        <h3 className={`text-base sm:text-lg font-bold mb-1 ${item.isBreak ? 'text-warm-gray' : 'text-indigo-deep'}`}>
-                          {item.title}
-                        </h3>
-
-                        <p className="text-xs sm:text-sm text-warm-gray leading-relaxed">
-                          {item.subtitle}
-                        </p>
-                      </div>
-
-                    </div>
+            <div className="divide-y divide-gray-200">
+              {scheduleData.map((item, idx) => (
+                <div 
+                  key={idx}
+                  className={`grid grid-cols-12 py-4 px-6 items-center schedule-row ${
+                    item.isBreak ? 'bg-[#F4F6FA]' : 'bg-white'
+                  }`}
+                >
+                  <div className="col-span-4 sm:col-span-3 font-mono text-xs sm:text-sm font-semibold text-[#243B6B]">
+                    {item.time}
                   </div>
-                </FadeIn>
-              )
-            })}
-          </div>
-
-          <FadeIn delay={0.4}>
-            <div className="mt-12 p-6 rounded-2xl bg-white border border-gray-100 text-center">
-              <p className="text-xs sm:text-sm text-warm-gray">
-                * Note: Timings and exact speaker order are tentative and subject to minor adjustments as final accepted papers and panels are scheduled with AAAI-27 operations.
-              </p>
+                  <div className="col-span-8 sm:col-span-9 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span className={`text-xs sm:text-sm ${item.isBreak ? 'text-[#556275] font-medium' : 'text-[#243B6B] font-semibold'}`}>
+                      {item.title}
+                    </span>
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded self-start sm:self-auto shrink-0 ${item.badgeBg}`}>
+                      {item.type}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
-          </FadeIn>
+          </div>
 
         </div>
       </section>

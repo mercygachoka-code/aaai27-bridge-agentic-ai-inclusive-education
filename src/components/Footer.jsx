@@ -2,32 +2,29 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-indigo-darker text-white/80">
-      {/* Warm gradient line */}
-      <div className="h-1 bg-gradient-to-r from-teal via-gold to-teal" />
-
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14">
-        <div className="grid md:grid-cols-3 gap-10">
-          {/* Brand column */}
+    <footer className="bg-[#15223D] text-white/80 border-t-2 border-[#159A9C]">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12">
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">
-                <span className="text-gold font-extrabold text-sm">21</span>
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-8 h-8 rounded bg-[#243B6B] flex items-center justify-center">
+                <span className="text-[#F2B84B] font-bold text-xs">21</span>
               </div>
               <div>
-                <span className="font-bold text-white text-sm tracking-wide">BRIDGE 21</span>
-                <span className="text-white/40 text-xs ml-2">AAAI-27</span>
+                <span className="font-bold text-white text-sm">BRIDGE 21</span>
+                <span className="text-white/50 text-xs ml-1.5">AAAI-27</span>
               </div>
             </div>
-            <p className="text-sm text-white/50 leading-relaxed font-light italic font-display">
+            <p className="text-xs text-white/60 leading-relaxed font-display italic">
               Building bridges between AI, teachers and inclusive learning.
             </p>
           </div>
 
-          {/* Quick links */}
+          {/* Navigation Links */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
-            <ul className="space-y-2.5">
+            <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-3">Navigation</h4>
+            <ul className="space-y-2 text-xs">
               {[
                 { to: '/', label: 'Home' },
                 { to: '/cfp', label: 'Call for Participation' },
@@ -35,7 +32,7 @@ export default function Footer() {
                 { to: '/committee', label: 'Committee' },
               ].map(({ to, label }) => (
                 <li key={to}>
-                  <Link to={to} className="text-sm text-white/60 hover:text-gold transition-colors">
+                  <Link to={to} className="text-white/60 hover:text-[#F2B84B] transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -45,24 +42,23 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">Contact</h4>
-            <p className="text-sm text-white/60 mb-2">For inquiries about Bridge 21:</p>
+            <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-3">Contact</h4>
+            <p className="text-xs text-white/60 mb-2">Bridge Lead Organizer:</p>
             <a
               href="mailto:mgachoka@uef.fi"
-              className="inline-flex items-center gap-2 text-sm text-gold hover:text-gold-light transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs text-[#F2B84B] hover:underline"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                <path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
-              </svg>
-              mgachoka@uef.fi
+              <span>Mercy Gachoka (mgachoka@uef.fi)</span>
             </a>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 text-center">
+        <div className="mt-10 pt-6 border-t border-white/10 text-center">
           <p className="text-xs text-white/40">
             &copy; 2026 Co-Designing Agentic AI Bridge. Contact:{' '}
-            <a href="mailto:mgachoka@uef.fi" className="hover:text-gold transition-colors">Mercy Gachoka</a>.
+            <a href="mailto:mgachoka@uef.fi" className="text-[#F2B84B] hover:underline">
+              Mercy Gachoka
+            </a>.
           </p>
         </div>
       </div>

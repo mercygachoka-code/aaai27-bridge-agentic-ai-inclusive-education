@@ -1,11 +1,9 @@
 import { useEffect, useRef } from 'react'
-import * as THREE from 'three'
 
 /**
  * SubtleConstellationCanvas
- * A gentle, benign 3D network of drifting nodes with soft interconnections.
- * Represents multi-agent systems and bridges between teachers, AI, and inclusive learners.
- * Calibrated with low opacity and slow orbital rotation so it stays gentle and non-distracting.
+ * Natural, mathematical network of nodes and connecting lines.
+ * Strictly flat colors (solid Teal #159A9C and Warm Gold #F2B84B) without neon radial glows or AI gradients.
  */
 export default function SubtleConstellationCanvas() {
   const containerRef = useRef(null)
@@ -14,254 +12,144 @@ export default function SubtleConstellationCanvas() {
     const container = containerRef.current
     if (!container) return
 
-    // Scene & Camera setup
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(
-      50,
-      container.clientWidth / container.clientHeight,
-      0.1,
-      1000
-    )
-    camera.position.z = 85
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
 
-    // WebGL Renderer
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-      powerPreference: 'low-power',
-    })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75))
-    renderer.setSize(container.clientWidth, container.clientHeight)
-    renderer.setClearColor(0x000000, 0)
-    container.appendChild(renderer.domElement)
+    container.appendChild(canvas)
 
-    // Particle nodes count & positions
+    let width = (canvas.width = container.clientWidth)
+    let height = (canvas.height = container.clientHeight)
+
     const isMobile = window.innerWidth < 768
-    const particleCount = isMobile ? 38 : 64
-    const maxConnectionDistance = isMobile ? 18 : 22
+    const nodeCount = isMobile ? 32 : 52
+    const maxConnectionDist = isMobile ? 120 : 150
 
-    const positions = new Float32Array(particleCount * 3)
-    const velocities = []
-    const colors = new Float32Array(particleCount * 3)
+    // Solid palette tokens
+    const TEAL = 'rgba(21, 154, 156, '
+    const GOLD = 'rgba(242, 184, 75, '
+    const WHITE = 'rgba(230, 238, 248, '
 
-    // Palette: Deep Indigo, Teal (#159A9C), and Warm Gold (#F2B84B)
-    const colorTeal = new THREE.Color('#159A9C')
-    const colorGold = new THREE.Color('#F2B84B')
-    const colorSoftWhite = new THREE.Color('#CBD5E1')
-
-    const spreadX = 80
-    const spreadY = 50
-    const spreadZ = 40
-
-    for (let i = 0; i < particleCount; i++) {
-      const i3 = i * 3
-      positions[i3] = (Math.random() - 0.5) * spreadX
-      positions[i3 + 1] = (Math.random() - 0.5) * spreadY
-      positions[i3 + 2] = (Math.random() - 0.5) * spreadZ
-
-      // Very slow, peaceful drifting velocity
-      velocities.push({
-        x: (Math.random() - 0.5) * 0.022,
-        y: (Math.random() - 0.5) * 0.022,
-        z: (Math.random() - 0.5) * 0.015,
+    const nodes = []
+    for (let i = 0; i < nodeCount; i++) {
+      const type = Math.random() < 0.45 ? 'teal' : Math.random() < 0.75 ? 'gold' : 'white'
+      nodes.push({
+        x: (Math.random() - 0.5) * width * 1.1,
+        y: (Math.random() - 0.5) * height * 1.1,
+        z: (Math.random() - 0.5) * 350,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: (Math.random() - 0.5) * 0.22,
+        vz: (Math.random() - 0.5) * 0.16,
+        radius: Math.random() * 1.4 + 1.6,
+        type,
       })
-
-      // Assign subtle color weight
-      const rand = Math.random()
-      let c = colorSoftWhite
-      if (rand < 0.45) c = colorTeal
-      else if (rand < 0.75) c = colorGold
-
-      colors[i3] = c.r
-      colors[i3 + 1] = c.g
-      colors[i3 + 2] = c.b
     }
 
-    // Nodes geometry
-    const particlesGeometry = new THREE.BufferGeometry()
-    particlesGeometry.setAttribute(
-      'position',
-      new THREE.BufferAttribute(positions, 3)
-    )
-    particlesGeometry.setAttribute(
-      'color',
-      new THREE.BufferAttribute(colors, 3)
-    )
-
-    // Subtle circular blurred texture for soft nodes
-    const canvas = document.createElement('canvas')
-    canvas.width = 32
-    canvas.height = 32
-    const ctx = canvas.getContext('2d')
-    const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16)
-    gradient.addColorStop(0, 'rgba(255,255,255,1)')
-    gradient.addColorStop(0.3, 'rgba(255,255,255,0.7)')
-    gradient.addColorStop(1, 'rgba(255,255,255,0)')
-    ctx.fillStyle = gradient
-    ctx.fillRect(0, 0, 32, 32)
-    const texture = new THREE.CanvasTexture(canvas)
-
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: isMobile ? 3.5 : 4.5,
-      vertexColors: true,
-      map: texture,
-      transparent: true,
-      opacity: 0.55,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    })
-
-    const pointCloud = new THREE.Points(particlesGeometry, particlesMaterial)
-    scene.add(pointCloud)
-
-    // Connecting lines geometry & material
-    const maxLines = (particleCount * (particleCount - 1)) / 2
-    const linePositions = new Float32Array(maxLines * 6)
-    const lineColors = new Float32Array(maxLines * 6)
-
-    const linesGeometry = new THREE.BufferGeometry()
-    linesGeometry.setAttribute(
-      'position',
-      new THREE.BufferAttribute(linePositions, 3)
-    )
-    linesGeometry.setAttribute('color', new THREE.BufferAttribute(lineColors, 3))
-
-    const linesMaterial = new THREE.LineBasicMaterial({
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.35,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    })
-
-    const lineMesh = new THREE.LineSegments(linesGeometry, linesMaterial)
-    scene.add(lineMesh)
-
-    // Mouse parallax tracking (damped & gentle)
+    // Mouse parallax
     const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 }
-
     const onPointerMove = (e) => {
       const rect = container.getBoundingClientRect()
-      const x = ((e.clientX - rect.left) / rect.width) * 2 - 1
-      const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1)
-      mouse.targetX = x * 3.5
-      mouse.targetY = y * 2.5
+      mouse.targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 30
+      mouse.targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 20
     }
-
     window.addEventListener('pointermove', onPointerMove, { passive: true })
 
-    // Resize handler
     const onResize = () => {
       if (!container) return
-      camera.aspect = container.clientWidth / container.clientHeight
-      camera.updateProjectionMatrix()
-      renderer.setSize(container.clientWidth, container.clientHeight)
+      width = canvas.width = container.clientWidth
+      height = canvas.height = container.clientHeight
     }
-
     window.addEventListener('resize', onResize)
 
-    // Animation Loop
-    let animationFrameId
-    let clock = new THREE.Clock()
+    let animId
+    let angle = 0
 
-    const animate = () => {
-      animationFrameId = requestAnimationFrame(animate)
+    const render = () => {
+      animId = requestAnimationFrame(render)
 
-      const delta = clock.getDelta()
-      const posAttr = particlesGeometry.attributes.position
-      const p = posAttr.array
-
-      // Smooth camera parallax
       mouse.x += (mouse.targetX - mouse.x) * 0.03
       mouse.y += (mouse.targetY - mouse.y) * 0.03
-      camera.position.x = mouse.x
-      camera.position.y = mouse.y
-      camera.lookAt(0, 0, 0)
 
-      // Very slow global rotation
-      pointCloud.rotation.y += 0.0006
-      lineMesh.rotation.y = pointCloud.rotation.y
+      angle += 0.0008
+      const cosA = Math.cos(angle)
+      const sinA = Math.sin(angle)
 
-      // Update particle positions gently
-      for (let i = 0; i < particleCount; i++) {
-        const i3 = i * 3
-        const v = velocities[i]
+      ctx.clearRect(0, 0, width, height)
 
-        p[i3] += v.x
-        p[i3 + 1] += v.y
-        p[i3 + 2] += v.z
+      const fov = 480
+      const centerX = width / 2 + mouse.x
+      const centerY = height / 2 + mouse.y
 
-        // Soft rebound inside boundary box
-        if (Math.abs(p[i3]) > spreadX / 2) v.x *= -1
-        if (Math.abs(p[i3 + 1]) > spreadY / 2) v.y *= -1
-        if (Math.abs(p[i3 + 2]) > spreadZ / 2) v.z *= -1
+      const projected = []
+      for (let i = 0; i < nodeCount; i++) {
+        const n = nodes[i]
+
+        n.x += n.vx
+        n.y += n.vy
+        n.z += n.vz
+
+        const boundX = (width * 1.1) / 2
+        const boundY = (height * 1.1) / 2
+        const boundZ = 200
+
+        if (Math.abs(n.x) > boundX) n.vx *= -1
+        if (Math.abs(n.y) > boundY) n.vy *= -1
+        if (Math.abs(n.z) > boundZ) n.vz *= -1
+
+        const rx = n.x * cosA - n.z * sinA
+        const rz = n.z * cosA + n.x * sinA + 520
+
+        const scale = fov / Math.max(rz, 100)
+        const sx = centerX + rx * scale
+        const sy = centerY + n.y * scale
+        const r = Math.max(n.radius * scale * 1.2, 1.0)
+        const alpha = Math.min(Math.max((rz - 220) / 500, 0.25), 0.75)
+
+        projected.push({ sx, sy, r, alpha, type: n.type })
       }
-      posAttr.needsUpdate = true
 
-      // Update connecting lines based on distance
-      let vertexCount = 0
-      let colorCount = 0
+      // Draw crisp, thin connecting lines
+      for (let i = 0; i < nodeCount; i++) {
+        const p1 = projected[i]
+        for (let j = i + 1; j < nodeCount; j++) {
+          const p2 = projected[j]
+          const dx = p1.sx - p2.sx
+          const dy = p1.sy - p2.sy
+          const dist = Math.sqrt(dx * dx + dy * dy)
 
-      for (let i = 0; i < particleCount; i++) {
-        for (let j = i + 1; j < particleCount; j++) {
-          const i3 = i * 3
-          const j3 = j * 3
-
-          const dx = p[i3] - p[j3]
-          const dy = p[i3 + 1] - p[j3 + 1]
-          const dz = p[i3 + 2] - p[j3 + 2]
-          const distSq = dx * dx + dy * dy + dz * dz
-
-          if (distSq < maxConnectionDistance * maxConnectionDistance) {
-            const dist = Math.sqrt(distSq)
-            const alpha = 1.0 - dist / maxConnectionDistance
-
-            linePositions[vertexCount++] = p[i3]
-            linePositions[vertexCount++] = p[i3 + 1]
-            linePositions[vertexCount++] = p[i3 + 2]
-
-            linePositions[vertexCount++] = p[j3]
-            linePositions[vertexCount++] = p[j3 + 1]
-            linePositions[vertexCount++] = p[j3 + 2]
-
-            const r = (colors[i3] + colors[j3]) * 0.5 * alpha * 0.5
-            const g = (colors[i3 + 1] + colors[j3 + 1]) * 0.5 * alpha * 0.6
-            const b = (colors[i3 + 2] + colors[j3 + 2]) * 0.5 * alpha * 0.8
-
-            lineColors[colorCount++] = r
-            lineColors[colorCount++] = g
-            lineColors[colorCount++] = b
-
-            lineColors[colorCount++] = r
-            lineColors[colorCount++] = g
-            lineColors[colorCount++] = b
+          if (dist < maxConnectionDist) {
+            const lineAlpha = (1 - dist / maxConnectionDist) * 0.18
+            ctx.beginPath()
+            ctx.moveTo(p1.sx, p1.sy)
+            ctx.lineTo(p2.sx, p2.sy)
+            ctx.strokeStyle = `${TEAL}${lineAlpha})`
+            ctx.lineWidth = 0.75
+            ctx.stroke()
           }
         }
       }
 
-      linesGeometry.setDrawRange(0, vertexCount / 3)
-      linesGeometry.attributes.position.needsUpdate = true
-      linesGeometry.attributes.color.needsUpdate = true
+      // Draw clean, flat circular dots
+      for (let i = 0; i < nodeCount; i++) {
+        const p = projected[i]
+        const colorPrefix = p.type === 'teal' ? TEAL : p.type === 'gold' ? GOLD : WHITE
 
-      renderer.render(scene, camera)
+        ctx.beginPath()
+        ctx.arc(p.sx, p.sy, p.r, 0, Math.PI * 2)
+        ctx.fillStyle = `${colorPrefix}${p.alpha * 0.85})`
+        ctx.fill()
+      }
     }
 
-    animate()
+    render()
 
-    // Cleanup
     return () => {
-      cancelAnimationFrame(animationFrameId)
+      cancelAnimationFrame(animId)
       window.removeEventListener('pointermove', onPointerMove)
       window.removeEventListener('resize', onResize)
-      if (container && renderer.domElement) {
-        container.removeChild(renderer.domElement)
+      if (container && canvas) {
+        container.removeChild(canvas)
       }
-      particlesGeometry.dispose()
-      particlesMaterial.dispose()
-      linesGeometry.dispose()
-      linesMaterial.dispose()
-      texture.dispose()
-      renderer.dispose()
     }
   }, [])
 
