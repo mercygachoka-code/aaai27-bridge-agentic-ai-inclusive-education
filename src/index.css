@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* ── Brand Palette ── */
+@theme {
+  --color-indigo-deep: #243B6B;
+  --color-indigo-dark: #1a2d52;
+  --color-indigo-darker: #111d38;
+  --color-indigo-light: #2e4d8a;
+  --color-teal: #159A9C;
+  --color-teal-light: #1ab8ba;
+  --color-teal-dark: #0f7a7c;
+  --color-gold: #F2B84B;
+  --color-gold-light: #f5c96f;
+  --color-gold-dark: #d9a23a;
+  --color-cream: #F4F6FA;
+  --color-warm-white: #FAFBFD;
+  --color-warm-gray: #6B7A8D;
+  --color-warm-gray-light: #94a3b8;
+
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Base Styles ── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #1e293b;
+  background-color: var(--color-warm-white);
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-indigo-dark);
+}
+
+/* ── Typography ── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ── Organic blob shapes for hero backgrounds ── */
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-15px, 15px) scale(0.95); }
+}
+
+@keyframes blob-float-reverse {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-25px, 15px) scale(0.97); }
+  66% { transform: translate(20px, -25px) scale(1.03); }
+}
+
+.blob-animate {
+  animation: blob-float 20s ease-in-out infinite;
+}
+
+.blob-animate-reverse {
+  animation: blob-float-reverse 25s ease-in-out infinite;
+}
+
+/* ── Smooth gradient text ── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-indigo-deep) 0%, var(--color-teal) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Card hover lift ── */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(36, 59, 107, 0.15);
+}
+
+/* ── Timeline connector ── */
+.timeline-line {
+  position: relative;
+}
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 48px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-teal) 0%, var(--color-gold) 100%);
+}
+.timeline-line:last-child::before {
+  display: none;
+}
+
+/* ── Schedule table ── */
+.schedule-row {
+  transition: background-color 0.2s ease;
+}
+.schedule-row:hover {
+  background-color: rgba(21, 154, 156, 0.04);
+}
+
+/* ── Warm divider ── */
+.warm-divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-teal), var(--color-gold), var(--color-teal));
+  border-radius: 2px;
+}
+
+/* ── Focus styles for accessibility ── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Mobile nav overlay ── */
+.mobile-nav-overlay {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
