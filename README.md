@@ -15,40 +15,20 @@
 
 ---
 
-### Available Pages & Routes
-1. **Home (`/`)**:
-   - Hero header with AAAI-27 badges, location, date, and core values.
-   - Tagline strip.
-   - Comprehensive Overview of the bridge objectives and target stakeholders.
-   - 11 core Topics of Interest with iconography.
-   - Format of Bridge (Half-day program components).
-   - Attend section with capacity notes (30–50 participants).
-   - Dual Call-to-Action for Call for Participation & AAAI Registration.
-
-2. **Call for Participation (`/cfp`)**:
-   - Detailed invitation & reviewing scope.
-   - Submission types: Short papers (2–4 pages), Position statements (2–5 pages), Posters, and Demonstrations.
-   - Guidelines on AAAI Bridge format, content, and references policy.
-   - EasyChair status card.
-   - Key Dates (AoE) milestone grid.
-   - Full checklist of topics.
-   - Participation & contact section.
-
-3. **Schedule (`/schedule`)**:
-   - Tentative Half-Day detailed program breakdown (8:30 – 12:30).
-   - Session tags (Keynote, Oral Papers, Posters & Demos, Networking Break, Expert Panel, Hands-on Workshop, Synthesis, and Closing).
-
-4. **Bridge Committee (`/committee`)**:
-   - Detailed profile cards for all 3 organizers:
-     - **Mercy Gachoka** (University of Eastern Finland) — `mgachoka@uef.fi`
-     - **Christianah Titilope Oyewale** (Simon Fraser University, Canada) — `christianah.oyewale@sfu.ca`
-     - **Andrew Kipkebut** (Kabarak University) — `akipkebut@kabarak.ac.ke`
-   - Direct mail links and contact invitation card.
-
----
-
 ### Running the Project Locally
-To run the development server:
+To install and run the development server:
+
+```bash
+git clone https://github.com/mercygachoka-code/aaai27-bridge-agentic-ai-inclusive-education
+```
+
+```bash
+cd aaai27-bridge-agentic-ai-inclusive-education
+```
+```bash
+npm install
+```
+
 ```bash
 npm run dev
 ```
