@@ -77,6 +77,89 @@ export default function CFP() {
         subtitle="We invite Short Papers, Position Statements, Posters, and Demonstrations exploring the design and application of agentic AI to support inclusive K–12 education."
       />
 
+      {/* ═══ WHAT TO EXPECT: SUBMISSION DASHBOARD (BEFORE SCROLL) ═══ */}
+      <section className="bg-white border-b border-gray-200 py-6 sm:py-8 shadow-sm">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
+            <div>
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#159A9C] font-bold block mb-1">
+                Author Briefing · Before You Scroll
+              </span>
+              <h2 className="text-xl sm:text-2xl font-display font-bold text-[#243B6B]">
+                Key Submission Summary
+              </h2>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <a href="#guidelines">
+                <Button variant="default" size="sm" className="gap-1.5 text-xs">
+                  <span>View Guidelines</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+              </a>
+              <a href="#dates">
+                <Button variant="outline" size="sm" className="text-xs">
+                  Key Dates
+                </Button>
+              </a>
+            </div>
+          </div>
+
+          {/* 4 Core Pillars at a Glance */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              {
+                label: '4 Submission Tracks',
+                detail: 'Short Papers, Position, Posters, Demos',
+                tag: 'Track Types',
+                tagColor: 'bg-[#243B6B] text-white',
+                href: '#guidelines',
+              },
+              {
+                label: 'AAAI Bridge Format',
+                detail: 'Standard official formatting guidelines',
+                tag: 'Format',
+                tagColor: 'bg-[#159A9C] text-white',
+                href: '#guidelines',
+              },
+              {
+                label: 'References Policy',
+                detail: 'References excluded from page count',
+                tag: 'Page Limit',
+                tagColor: 'bg-[#F2B84B] text-[#1C2E52]',
+                href: '#guidelines',
+              },
+              {
+                label: 'Event Dates',
+                detail: '16–17 February 2027 · Montréal',
+                tag: 'AAAI-27',
+                tagColor: 'bg-[#243B6B] text-white',
+                href: '#dates',
+              },
+            ].map((card, i) => (
+              <a
+                key={i}
+                href={card.href}
+                className="group p-4 rounded-xl border border-gray-200 bg-[#FAFBFD] hover:bg-white hover:border-[#159A9C] hover:shadow-md transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded inline-block mb-2 ${card.tagColor}`}>
+                    {card.tag}
+                  </span>
+                  <h3 className="font-bold text-xs sm:text-sm text-[#243B6B] group-hover:text-[#159A9C] transition-colors mb-1">
+                    {card.label}
+                  </h3>
+                  <p className="text-[11px] text-[#556275] leading-snug">{card.detail}</p>
+                </div>
+                <div className="pt-2 mt-2 border-t border-gray-100 flex items-center justify-between text-[11px] font-semibold text-[#159A9C] opacity-80 group-hover:opacity-100">
+                  <span>Jump to section</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ INTRODUCTION BANNER ═══ */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-5 sm:px-8">
@@ -104,7 +187,7 @@ export default function CFP() {
       </section>
 
       {/* ═══ SUBMISSION GUIDELINES ═══ */}
-      <section className="py-16 sm:py-20 bg-[#F4F6FA]">
+      <section id="guidelines" className="py-16 sm:py-20 bg-[#F4F6FA]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="max-w-3xl mb-12">
             <FadeIn>
@@ -210,7 +293,7 @@ export default function CFP() {
       </section>
 
       {/* ═══ KEY DATES ═══ */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section id="dates" className="py-16 sm:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-5 sm:px-8">
           <div className="max-w-3xl mb-10">
             <FadeIn>

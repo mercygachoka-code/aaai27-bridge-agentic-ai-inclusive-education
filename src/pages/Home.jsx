@@ -29,6 +29,7 @@ import { TracingBeam } from '../components/ui/tracing-beam'
 import { Button } from '../components/ui/button'
 import { Badge } from '../components/ui/badge'
 import { Card, CardContent } from '../components/ui/card'
+import ContentEnclosure from '../components/ContentEnclosure'
 
 const topics = [
   { 
@@ -294,10 +295,56 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#159A9C]" />
       </header>
 
+      {/* ═══ WHAT TO EXPECT: QUICK-ANCHOR EXECUTIVE ROADMAP ═══ */}
+      <section className="bg-white border-b border-gray-200 py-6 sm:py-8 shadow-sm">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+            <div>
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#159A9C] font-bold block mb-1">
+                At a Glance · Navigation Guide
+              </span>
+              <h2 className="text-xl sm:text-2xl font-display font-bold text-[#243B6B]">
+                What to Expect on This Page
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-[#556275] max-w-md">
+              Everything you need to know about the AAAI-27 Bridge Program before diving into the details:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 pt-2">
+            {[
+              { num: '01', title: 'Overview', href: '#overview', desc: 'Core rationale & goals' },
+              { num: '02', title: 'Topics', href: '#topics', desc: '14 research themes' },
+              { num: '03', title: 'Format', href: '#format', desc: 'Half-day structure' },
+              { num: '04', title: 'Attend', href: '#attend', desc: '30–50 participants' },
+              { num: '05', title: 'Submit', href: '#submit', desc: 'Papers, demos & CFP' },
+            ].map((step) => (
+              <a
+                key={step.num}
+                href={step.href}
+                className="group p-3 rounded-lg border border-gray-200 bg-[#FAFBFD] hover:bg-white hover:border-[#159A9C] hover:shadow-md transition-all flex flex-col justify-between"
+              >
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[11px] font-mono font-bold text-[#159A9C]">{step.num}</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#159A9C] group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-xs sm:text-sm text-[#243B6B] group-hover:text-[#159A9C] transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-[11px] text-[#556275]">{step.desc}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ TAGLINE BAR ═══ */}
-      <section className="bg-[#F4F6FA] border-b border-gray-200 py-5">
+      <section className="bg-[#F4F6FA] border-b border-gray-200 py-4">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
-          <p className="text-base sm:text-lg text-[#243B6B] font-display italic font-medium">
+          <p className="text-sm sm:text-base text-[#243B6B] font-display italic font-medium">
             Building bridges between AI, teachers and inclusive learning.
           </p>
         </div>
@@ -335,7 +382,7 @@ export default function Home() {
         </section>
 
         {/* ═══ TOPICS OF INTEREST ═══ */}
-        <section className="py-16 sm:py-20">
+        <section id="topics" className="py-16 sm:py-20">
           <div className="max-w-5xl mx-auto">
             <div className="mb-10">
               <FadeIn>
@@ -374,8 +421,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ═══ FORMAT OF BRIDGE ═══ */}
-        <section className="py-16 sm:py-20">
+        {/* ═══ FORMAT OF BRIDGE ENCLOSED WITH ContentEnclosure ═══ */}
+        <section id="format" className="py-16 sm:py-20">
           <div className="max-w-5xl mx-auto">
             <div className="mb-10">
               <FadeIn>
@@ -389,38 +436,47 @@ export default function Home() {
               </FadeIn>
             </div>
 
-            <div className="space-y-4">
-              {formatItems.map((item, idx) => {
-                const ItemIcon = item.icon
-                return (
-                  <FadeIn key={idx} delay={idx * 0.08}>
-                    <Card className="border-gray-200 p-6 bg-white card-hover">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
-                        <div className="flex items-center gap-3">
-                          <span className="font-mono font-bold text-xs px-2.5 py-1 rounded bg-[#243B6B] text-white">
-                            {item.time}
-                          </span>
-                          <h3 className="text-base sm:text-lg font-bold text-[#243B6B] font-display">
-                            {item.title}
-                          </h3>
+            {/* Reusable ContentEnclosure component wrapping all half-day sessions */}
+            <ContentEnclosure
+              title="Half-Day Program Breakdown"
+              badge="AAAI-27"
+              subtitle="All 4 core sessions enclosed within the single half-day itinerary"
+              color="border-[#159A9C]"
+              className="my-6"
+            >
+              <div className="space-y-4">
+                {formatItems.map((item, idx) => {
+                  const ItemIcon = item.icon
+                  return (
+                    <FadeIn key={idx} delay={idx * 0.08}>
+                      <Card className="border-gray-200 p-5 sm:p-6 bg-white card-hover shadow-sm">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+                          <div className="flex items-center gap-3">
+                            <span className="font-mono font-bold text-xs px-2.5 py-1 rounded bg-[#243B6B] text-white shrink-0">
+                              {item.time}
+                            </span>
+                            <h3 className="text-base sm:text-lg font-bold text-[#243B6B] font-display">
+                              {item.title}
+                            </h3>
+                          </div>
+                          <Badge variant="secondary" className="self-start sm:self-auto text-[11px] shrink-0">
+                            Half-Day Session
+                          </Badge>
                         </div>
-                        <Badge variant="secondary" className="self-start sm:self-auto text-[11px]">
-                          Half-Day Program
-                        </Badge>
-                      </div>
-                      <p className="text-sm text-[#556275] leading-relaxed pl-0 sm:pl-12">
-                        {item.desc}
-                      </p>
-                    </Card>
-                  </FadeIn>
-                )
-              })}
-            </div>
+                        <p className="text-sm text-[#556275] leading-relaxed pl-0 sm:pl-12">
+                          {item.desc}
+                        </p>
+                      </Card>
+                    </FadeIn>
+                  )
+                })}
+              </div>
+            </ContentEnclosure>
           </div>
         </section>
 
         {/* ═══ ATTEND ═══ */}
-        <section className="py-16 sm:py-20">
+        <section id="attend" className="py-16 sm:py-20">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <Card className="p-8 sm:p-12 border-gray-200 bg-[#FAFBFD]">
@@ -450,7 +506,7 @@ export default function Home() {
         </section>
 
         {/* ═══ SUBMIT ═══ */}
-        <section className="py-16 sm:py-20">
+        <section id="submit" className="py-16 sm:py-20">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <Card className="p-8 sm:p-12 border-gray-200 bg-white">
@@ -475,7 +531,7 @@ export default function Home() {
         </section>
 
         {/* ═══ REGISTER ═══ */}
-        <section className="py-16 sm:py-20">
+        <section id="register" className="py-16 sm:py-20">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <Card className="p-8 sm:p-12 border-gray-200 bg-[#FAFBFD]">
