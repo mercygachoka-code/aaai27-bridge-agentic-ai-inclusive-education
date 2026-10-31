@@ -4,14 +4,13 @@ import React from 'react'
  * ContentEnclosure
  * A pure HTML + Tailwind CSS curly bracket layout wrapper `{`.
  *
- * Requirements met:
- * 1. Continuous vertical left border line matching dynamic height.
- * 2. Top and bottom curve inward gracefully (rounded-tl-2xl / rounded-bl-2xl).
- * 3. Exact ornamental outward center spike pointing left (`{`), built with HTML + Tailwind.
- * 4. Completely free of raw SVGs or images, perfectly responsive and glitch-free.
+ * Fixed Architecture:
+ * - A single unified flexbox column with identical horizontal width and alignment.
+ * - The vertical line connects seamlessly from the top hook, through the center point, to the bottom hook.
+ * - No disconnects or step offsets.
  *
- * @param {React.ReactNode} children - Variable content enclosed within the bracket.
- * @param {string} [title] - Optional title displayed above the enclosed block.
+ * @param {React.ReactNode} children - Content enclosed within the bracket.
+ * @param {string} [title] - Optional title above the enclosed block.
  * @param {string} [subtitle] - Optional subtitle.
  * @param {string} [badge] - Optional badge tag.
  * @param {string} [color='border-[#159A9C]'] - Tailwind border color class.
@@ -53,35 +52,31 @@ export default function ContentEnclosure({
         
         {/* ═══ CONTINUOUS CURLY BRACKET SPINE ═══ */}
         <div 
-          className="relative w-8 sm:w-10 shrink-0 select-none pointer-events-none flex flex-col"
+          className="relative w-8 shrink-0 select-none pointer-events-none flex flex-col items-end"
           aria-hidden="true"
         >
-          {/* TOP HOOK (curves inward right towards content) */}
-          <div className="h-6 w-full relative shrink-0">
-            <div className={`absolute top-0 right-0 w-5 h-6 border-t-2 border-l-2 ${color} rounded-tl-2xl`} />
+          {/* UPPER HALF OF CURLY BRACKET */}
+          <div className="flex-1 w-full flex flex-col items-end justify-between min-h-[60px]">
+            {/* Top Hook: curves from right inwards, dropping into the vertical spine */}
+            <div className={`w-5 h-6 border-t-2 border-l-2 ${color} rounded-tl-2xl`} />
+
+            {/* Straight vertical connector */}
+            <div className={`flex-1 w-5 border-l-2 ${color}`} />
+
+            {/* Upper half of center spike: curves out to the left */}
+            <div className={`w-5 h-6 border-b-2 border-l-2 ${color} rounded-bl-2xl`} />
           </div>
 
-          {/* TOP VERTICAL RUN (connecting top hook to center spike) */}
-          <div className="flex-1 w-full relative min-h-[20px]">
-            <div className={`absolute top-0 bottom-0 right-0 w-0 border-l-2 ${color}`} />
-          </div>
+          {/* LOWER HALF OF CURLY BRACKET */}
+          <div className="flex-1 w-full flex flex-col items-end justify-between min-h-[60px]">
+            {/* Lower half of center spike: curves back in from the left */}
+            <div className={`w-5 h-6 border-t-2 border-l-2 ${color} rounded-tl-2xl`} />
 
-          {/* CENTER ORNAMENTAL OUTWARD SPIKE ({) */}
-          <div className="relative h-12 w-full shrink-0">
-            {/* Upper flare curving outward to the left */}
-            <div className={`absolute top-0 right-0 w-4 h-6 border-b-2 border-r-2 ${color} rounded-br-2xl`} />
-            {/* Lower flare curving back inward to the right */}
-            <div className={`absolute bottom-0 right-0 w-4 h-6 border-t-2 border-r-2 ${color} rounded-tr-2xl`} />
-          </div>
+            {/* Straight vertical connector */}
+            <div className={`flex-1 w-5 border-l-2 ${color}`} />
 
-          {/* BOTTOM VERTICAL RUN (connecting center spike to bottom hook) */}
-          <div className="flex-1 w-full relative min-h-[20px]">
-            <div className={`absolute top-0 bottom-0 right-0 w-0 border-l-2 ${color}`} />
-          </div>
-
-          {/* BOTTOM HOOK (curves inward right towards content) */}
-          <div className="h-6 w-full relative shrink-0">
-            <div className={`absolute bottom-0 right-0 w-5 h-6 border-b-2 border-l-2 ${color} rounded-bl-2xl`} />
+            {/* Bottom Hook: curves from the vertical spine inwards to the right */}
+            <div className={`w-5 h-6 border-b-2 border-l-2 ${color} rounded-bl-2xl`} />
           </div>
         </div>
 
