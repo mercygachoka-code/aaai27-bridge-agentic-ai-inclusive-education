@@ -13,7 +13,6 @@ const committeeMembers = [
     email: 'mgachoka@uef.fi',
     photo: '/committee/mercy-gachoka.png',
     initials: 'MG',
-    accentBg: 'bg-[#159A9C]',
   },
   {
     name: 'Christianah Titilope Oyewale',
@@ -21,7 +20,6 @@ const committeeMembers = [
     email: 'christianah.oyewale@sfu.ca',
     photo: '/committee/christianah-oyewale.png',
     initials: 'CO',
-    accentBg: 'bg-[#243B6B]',
   },
   {
     name: 'Andrew Kipkebut',
@@ -29,7 +27,6 @@ const committeeMembers = [
     email: 'akipkebut@kabarak.ac.ke',
     photo: '/committee/andrew-kipkebut.png',
     initials: 'AK',
-    accentBg: 'bg-[#D49C35]',
   },
 ]
 
@@ -66,14 +63,14 @@ export default function Committee() {
               <StaggerItem key={idx}>
                 <Card className="h-full bg-[#FAFBFD] overflow-hidden border-gray-200 card-hover flex flex-col justify-between">
                   <div>
-                    <div className={`relative mx-auto mt-6 h-70 w-70 rounded-full ${member.accentBg} flex items-center justify-center overflow-hidden`}>
+                    <div className="relative mx-auto mt-6 h-52 w-52 shrink-0 rounded-full border border-gray-200 flex items-center justify-center overflow-hidden">
                       <span className="text-4xl font-display font-bold text-white/90" aria-hidden="true">
                         {member.initials}
                       </span>
                       <img
                         src={member.photo}
                         alt={`${member.name} portrait`}
-                        className="absolute inset-0 h-full w-full object-cover object-top scale-99.9"
+                        className="absolute inset-0 h-full w-full object-contain object-center"
                         onError={(event) => {
                           event.currentTarget.style.display = 'none'
                         }}
