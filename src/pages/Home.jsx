@@ -422,7 +422,7 @@ export default function Home() {
         </section>
 
         {/* ═══ FORMAT OF BRIDGE ENCLOSED WITH ContentEnclosure ═══ */}
-        <section id="format" className="py-16 sm:py-20">
+        <section id="format" className="pt-16 sm:pt-20 pb-8 sm:pb-10">
           <div className="max-w-5xl mx-auto">
             <div className="mb-10">
               <FadeIn>
@@ -476,8 +476,13 @@ export default function Home() {
         </section>
 
         {/* ═══ ATTEND ═══ */}
-        <section id="attend" className="py-16 sm:py-20">
+        <section id="attend" className="pt-8 sm:pt-10 pb-12 sm:pb-16 border-t border-gray-200">
           <div className="max-w-5xl mx-auto">
+            <div className="flex items-center gap-3 mb-6 text-xs font-mono uppercase tracking-widest text-[#159A9C] font-bold">
+              <span className="h-px flex-1 bg-[#159A9C]/30" />
+              <span>Next steps</span>
+              <span className="h-px flex-1 bg-[#159A9C]/30" />
+            </div>
             <FadeIn>
               <Card className="p-8 sm:p-12 border-gray-200 bg-[#FAFBFD]">
                 <div className="grid lg:grid-cols-12 gap-8 items-center">
@@ -506,7 +511,7 @@ export default function Home() {
         </section>
 
         {/* ═══ SUBMIT ═══ */}
-        <section id="submit" className="py-16 sm:py-20">
+        <section id="submit" className="py-10 sm:py-12">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <Card className="p-8 sm:p-12 border-gray-200 bg-white">
@@ -531,7 +536,7 @@ export default function Home() {
         </section>
 
         {/* ═══ REGISTER ═══ */}
-        <section id="register" className="py-16 sm:py-20">
+        <section id="register" className="pt-10 sm:pt-12 pb-16 sm:pb-20">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <Card className="p-8 sm:p-12 border-gray-200 bg-[#FAFBFD]">
