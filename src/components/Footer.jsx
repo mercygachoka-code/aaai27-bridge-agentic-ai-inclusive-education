@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-3">Contact</h4>
-            <p className="text-xs text-white/60 mb-2">Bridge Lead Organizer:</p>
+            <p className="text-xs text-white/60 mb-2">Bridge Chair Organizer:</p>
             <a
               href="mailto:mgachoka@uef.fi"
               className="inline-flex items-center gap-1.5 text-xs text-[#F2B84B] hover:underline"
@@ -55,10 +55,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-white/10 text-center">
           <p className="text-xs text-white/40">
-            &copy; 2026 Co-Designing Agentic AI Bridge. Contact:{' '}
-            <a href="mailto:mgachoka@uef.fi" className="text-[#F2B84B] hover:underline">
-              Mercy Gachoka
-            </a>.
+            &copy; 2026 Co-Designing Agentic AI Bridge for Inclusive Learning. 
           </p>
         </div>
       </div>

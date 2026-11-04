@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import CFP from './pages/CFP'
 import Schedule from './pages/Schedule'
 import Committee from './pages/Committee'
+import Keynote from './pages/Keynote'
 
 export default function App() {
   const location = useLocation()
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="cfp" element={<CFP />} />
           <Route path="schedule" element={<Schedule />} />
           <Route path="committee" element={<Committee />} />
+          <Route path="keynote" element={<Keynote />} />
         </Route>
       </Routes>
     </AnimatePresence>

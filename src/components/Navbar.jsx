@@ -7,6 +7,7 @@ const navItems = [
   { to: '/cfp', label: 'Call for Participation' },
   { to: '/schedule', label: 'Schedule' },
   { to: '/committee', label: 'Committee' },
+  { to: '/keynote', label: 'Keynote' },
 ]
 
 export default function Navbar() {

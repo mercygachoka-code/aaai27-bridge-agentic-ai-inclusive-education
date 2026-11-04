@@ -45,9 +45,9 @@ const submissionTypes = [
 ]
 
 const dates = [
-  { label: 'Submission deadline', value: 'To be announced.', status: 'AoE', isHighlight: false },
-  { label: 'Notification', value: 'To be announced.', status: 'AoE', isHighlight: false },
-  { label: 'Camera-ready', value: 'To be announced.', status: 'AoE', isHighlight: false },
+  { label: 'Submission deadline', value: '2 December 2026', status: 'AoE', isHighlight: false },
+  { label: 'Notification of Acceptance', value: '6 December 2026', status: 'AoE', isHighlight: false },
+  { label: 'Camera-ready', value: '13 December 2026', status: 'AoE', isHighlight: false },
   { label: 'Bridge date', value: '16–17 February 2027.', status: 'Montréal, Canada', isHighlight: true },
 ]
 
@@ -234,15 +234,15 @@ export default function CFP() {
                 </div>
                 <h3 className="font-bold text-[#243B6B] text-sm mb-2">Format</h3>
                 <p className="text-xs text-[#556275] leading-relaxed mb-3">
-                  AAAI Bridge format (https://aaai.org/conference/aaai/aaai-27/bridge-program-call-for-proposals/).
+                  AAAI-27 conference format (https://aaai.org/conference/aaai/aaai-27/).
                 </p>
                 <a
-                  href="https://aaai.org/conference/aaai/aaai-27/bridge-program-call-for-proposals/"
+                  href="https://aaai.org/conference/aaai/aaai-27/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#159A9C] hover:text-[#0F7577] transition-colors"
                 >
-                  <span>AAAI Bridge format guidelines</span>
+                  <span>AAAI-27 conference page</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </Card>
@@ -273,6 +273,22 @@ export default function CFP() {
             </FadeIn>
 
           </div>
+
+          <FadeIn delay={0.35}>
+            <Card className="mt-8 p-6 border-gray-200 bg-white">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-lg bg-[#159A9C]/10 flex items-center justify-center text-[#159A9C] shrink-0">
+                  <Users className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#243B6B] text-sm mb-2">Submission Policy</h3>
+                  <p className="text-xs text-[#556275] leading-relaxed">
+                    Submissions will undergo a double-blind peer review process by multiple reviewers.
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </FadeIn>
 
           {/* Submission Site Card */}
           <FadeIn delay={0.3}>
