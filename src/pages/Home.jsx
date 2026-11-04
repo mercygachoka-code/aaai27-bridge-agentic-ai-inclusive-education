@@ -459,9 +459,6 @@ export default function Home() {
                               {item.title}
                             </h3>
                           </div>
-                          <Badge variant="secondary" className="self-start sm:self-auto text-[11px] shrink-0">
-                            Half-Day Session
-                          </Badge>
                         </div>
                         <p className="text-sm text-[#556275] leading-relaxed pl-0 sm:pl-12">
                           {item.desc}
