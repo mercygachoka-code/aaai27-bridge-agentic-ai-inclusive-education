@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-3">Contact</h4>
-            <p className="text-xs text-white/60 mb-2">Bridge Chair Organizer:</p>
+            <p className="text-xs text-white/60 mb-2">Bridge Chair:</p>
             <a
               href="mailto:mgachoka@uef.fi"
               className="inline-flex items-center gap-1.5 text-xs text-[#F2B84B] hover:underline"
