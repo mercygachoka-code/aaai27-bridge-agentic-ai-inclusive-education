@@ -5,20 +5,13 @@ import SectionLabel from '../components/SectionLabel'
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/Motion'
 import { Card } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
-import { 
-  Table, 
-  TableHeader, 
-  TableBody, 
-  TableRow, 
-  TableHead, 
-  TableCell 
-} from '../components/ui/table'
 
 const committeeMembers = [
   {
     name: 'Mercy Gachoka',
-    affiliation: 'University of Eastern Finland',
+    affiliation: 'University of Eastern, Finland',
     email: 'mgachoka@uef.fi',
+    photo: '/committee/mercy-gachoka.png',
     initials: 'MG',
     accentBg: 'bg-[#159A9C]',
   },
@@ -26,13 +19,15 @@ const committeeMembers = [
     name: 'Christianah Titilope Oyewale',
     affiliation: 'Simon Fraser University, Canada',
     email: 'christianah.oyewale@sfu.ca',
+    photo: '/committee/christianah-oyewale.png',
     initials: 'CO',
     accentBg: 'bg-[#243B6B]',
   },
   {
     name: 'Andrew Kipkebut',
-    affiliation: 'Kabarak University',
+    affiliation: 'Kabarak University, Kenya',
     email: 'akipkebut@kabarak.ac.ke',
+    photo: '/committee/andrew-kipkebut.png',
     initials: 'AK',
     accentBg: 'bg-[#D49C35]',
   },
@@ -66,31 +61,43 @@ export default function Committee() {
             </FadeIn>
           </div>
 
-          {/* Cards format using shadcn Card */}
           <StaggerContainer className="grid md:grid-cols-3 gap-6 mb-12">
             {committeeMembers.map((member, idx) => (
               <StaggerItem key={idx}>
-                <Card className="h-full bg-[#FAFBFD] p-6 border-gray-200 card-hover flex flex-col justify-between">
+                <Card className="h-full bg-[#FAFBFD] overflow-hidden border-gray-200 card-hover flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className={`w-12 h-12 rounded-lg ${member.accentBg} flex items-center justify-center text-white font-bold text-base`}>
+                    <div className={`relative h-56 ${member.accentBg} flex items-center justify-center overflow-hidden`}>
+                      <span className="text-4xl font-display font-bold text-white/90" aria-hidden="true">
                         {member.initials}
-                      </div>
-                      <Badge variant="outline" className="text-[10px]">
-                        Bridge 21
-                      </Badge>
+                      </span>
+                      <img
+                        src={member.photo}
+                        alt={`${member.name} portrait`}
+                        className="absolute inset-0 h-full w-full object-contain"
+                        onError={(event) => {
+                          event.currentTarget.style.display = 'none'
+                        }}
+                      />
                     </div>
 
-                    <h3 className="text-lg font-bold text-[#243B6B] mb-1 font-display">
-                      {member.name}
-                    </h3>
+                    <div className="p-6 pb-4">
+                      <div className="flex items-center justify-between mb-4">
+                        <Badge variant="outline" className="text-[10px]">
+                          Bridge 21
+                        </Badge>
+                      </div>
 
-                    <p className="text-xs text-[#556275] mb-4">
-                      {member.affiliation}
-                    </p>
+                      <h3 className="text-lg font-bold text-[#243B6B] mb-1 font-display">
+                        {member.name}
+                      </h3>
+
+                      <p className="text-xs text-[#556275] mb-4">
+                        {member.affiliation}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="pt-3 border-t border-gray-200">
+                  <div className="mx-6 pt-3 pb-6 border-t border-gray-200">
                     <a
                       href={`mailto:${member.email}`}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#159A9C] hover:text-[#0F7577] transition-colors"
@@ -103,34 +110,6 @@ export default function Committee() {
               </StaggerItem>
             ))}
           </StaggerContainer>
-
-          {/* Table using shadcn Table */}
-          <FadeIn delay={0.2}>
-            <div className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm mt-8">
-              <Table>
-                <TableHeader>
-                  <TableRow className="border-none hover:bg-transparent">
-                    <TableHead>Name</TableHead>
-                    <TableHead>Affiliation</TableHead>
-                    <TableHead>Email</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {committeeMembers.map((m, i) => (
-                    <TableRow key={i}>
-                      <TableCell className="font-semibold text-[#243B6B]">{m.name}</TableCell>
-                      <TableCell className="text-[#556275]">{m.affiliation}</TableCell>
-                      <TableCell>
-                        <a href={`mailto:${m.email}`} className="text-[#159A9C] hover:underline font-medium">
-                          {m.email}
-                        </a>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </FadeIn>
 
         </div>
       </section>
