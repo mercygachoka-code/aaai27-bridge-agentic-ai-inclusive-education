@@ -544,7 +544,7 @@ export default function Home() {
                 </p>
                 <div>
                   <a
-                    href="https://aaai.org/conference/aaai/aaai-27/"
+                    href="#"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
