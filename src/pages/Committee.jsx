@@ -66,14 +66,14 @@ export default function Committee() {
               <StaggerItem key={idx}>
                 <Card className="h-full bg-[#FAFBFD] overflow-hidden border-gray-200 card-hover flex flex-col justify-between">
                   <div>
-                    <div className={`relative h-56 ${member.accentBg} flex items-center justify-center overflow-hidden`}>
+                    <div className={`relative mx-auto mt-6 h-70 w-70 rounded-full ${member.accentBg} flex items-center justify-center overflow-hidden`}>
                       <span className="text-4xl font-display font-bold text-white/90" aria-hidden="true">
                         {member.initials}
                       </span>
                       <img
                         src={member.photo}
                         alt={`${member.name} portrait`}
-                        className="absolute inset-0 h-full w-full object-contain"
+                        className="absolute inset-0 h-full w-full object-cover object-top scale-99.9"
                         onError={(event) => {
                           event.currentTarget.style.display = 'none'
                         }}
