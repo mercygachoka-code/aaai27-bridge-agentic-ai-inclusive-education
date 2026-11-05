@@ -4,7 +4,6 @@ import PageHero from '../components/PageHero'
 import SectionLabel from '../components/SectionLabel'
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/Motion'
 import { Card } from '../components/ui/card'
-import { Badge } from '../components/ui/badge'
 
 const committeeMembers = [
   {
@@ -13,6 +12,7 @@ const committeeMembers = [
     email: 'mgachoka@uef.fi',
     photo: '/committee/mercy-gachoka.png',
     initials: 'MG',
+    accent: 'bg-[#159A9C]',
   },
   {
     name: 'Christianah Titilope Oyewale',
@@ -20,6 +20,7 @@ const committeeMembers = [
     email: 'christianah.oyewale@sfu.ca',
     photo: '/committee/christianah-oyewale.png',
     initials: 'CO',
+    accent: 'bg-[#F2B84B]',
   },
   {
     name: 'Andrew Kipkebut',
@@ -27,6 +28,7 @@ const committeeMembers = [
     email: 'akipkebut@kabarak.ac.ke',
     photo: '/committee/andrew-kipkebut.png',
     initials: 'AK',
+    accent: 'bg-[#243B6B]',
   },
 ]
 
@@ -40,9 +42,9 @@ export default function Committee() {
       className="overflow-hidden"
     >
       <PageHero
-        badge="Bridge 21"
+        badge="Bridge Program"
         title="Bridge Committee"
-        subtitle="Organising committee for AAAI-27 Bridge 21"
+        subtitle="Organising committee for AAAI-27 Bridge Program"
       />
 
       {/* ═══ COMMITTEE MEMBERS ═══ */}
@@ -78,10 +80,11 @@ export default function Committee() {
                     </div>
 
                     <div className="p-6 pb-4">
-                      <div className="flex items-center justify-between mb-4">
-                        <Badge variant="outline" className="text-[10px]">
-                          Bridge 21
-                        </Badge>
+                      <div className="flex items-center justify-center mb-4">
+                        <div
+                          className={`h-2 w-52 rounded-full ${member.accent}`}
+                          aria-hidden="true"
+                        />
                       </div>
 
                       <h3 className="text-lg font-bold text-[#243B6B] mb-1 font-display">

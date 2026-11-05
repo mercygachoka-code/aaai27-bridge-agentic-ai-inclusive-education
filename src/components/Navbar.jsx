@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const navItems = [
   { to: '/', label: 'Home' },
   { to: '/cfp', label: 'Call for Participation' },
+  { to: '/key-dates', label: 'Key Dates' },
   { to: '/schedule', label: 'Schedule' },
   { to: '/committee', label: 'Committee' },
   { to: '/keynote', label: 'Keynote' },
@@ -42,15 +43,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-18">
           {/* Brand */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-lg bg-indigo-deep flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-              <span className="text-gold font-extrabold text-sm leading-none">21</span>
+            <div className="w-auto min-w-9 h-9 px-2 rounded-lg bg-indigo-deep flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
+              <span className="text-gold font-extrabold text-xs leading-none">AAAI-27</span>
             </div>
             <div className="flex items-baseline gap-1.5">
               <span className={`font-bold text-sm tracking-wide ${scrolled ? 'text-indigo-deep' : 'text-white'} transition-colors`}>
-                BRIDGE 21
-              </span>
-              <span className={`text-xs font-medium ${scrolled ? 'text-warm-gray' : 'text-white/60'} transition-colors`}>
-                AAAI-27
+                Bridge Program
               </span>
             </div>
           </Link>

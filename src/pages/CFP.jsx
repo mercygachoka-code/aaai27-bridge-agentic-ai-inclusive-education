@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { 
   FileText, 
   ExternalLink, 
   CheckCircle2, 
-  Calendar, 
   Layers, 
   HelpCircle, 
   Users, 
@@ -44,13 +44,6 @@ const submissionTypes = [
   },
 ]
 
-const dates = [
-  { label: 'Submission deadline', value: '2 December 2026', status: 'AoE', isHighlight: false },
-  { label: 'Notification of Acceptance', value: '6 December 2026', status: 'AoE', isHighlight: false },
-  { label: 'Camera-ready', value: '13 December 2026', status: 'AoE', isHighlight: false },
-  { label: 'Bridge date', value: '16–17 February 2027.', status: 'Montréal, Canada', isHighlight: true },
-]
-
 const topicsList = [
   'Agentic AI and multi-agent systems for inclusive education.',
   'Teacher agency, human oversight, and AI autonomy.',
@@ -72,7 +65,7 @@ export default function CFP() {
       className="overflow-hidden"
     >
       <PageHero
-        badge="Bridge 21"
+        badge="Bridge Program"
         title="Call for Participation (CFP)"
         subtitle="We invite Short Papers, Position Statements, Posters, and Demonstrations exploring the design and application of agentic AI to support inclusive K–12 education."
       />
@@ -86,7 +79,7 @@ export default function CFP() {
                 Author Briefing · Before You Scroll
               </span>
               <h2 className="text-xl sm:text-2xl font-display font-bold text-[#243B6B]">
-                Key Submission Summary
+                Submission Summary
               </h2>
             </div>
             <div className="flex flex-wrap items-center gap-2">
@@ -96,11 +89,11 @@ export default function CFP() {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Button>
               </a>
-              <a href="#dates">
+              <Link to="/key-dates">
                 <Button variant="outline" size="sm" className="text-xs">
                   Key Dates
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -115,9 +108,9 @@ export default function CFP() {
                 href: '#guidelines',
               },
               {
-                label: 'AAAI Bridge Format',
-                detail: 'Standard official formatting guidelines',
-                tag: 'Format',
+                label: 'Submission Guidelines',
+                detail: 'Standard Submission guidelines',
+                tag: 'Submission',
                 tagColor: 'bg-[#159A9C] text-white',
                 href: '#guidelines',
               },
@@ -133,7 +126,7 @@ export default function CFP() {
                 detail: '16–17 February 2027 · Montréal',
                 tag: 'AAAI-27',
                 tagColor: 'bg-[#243B6B] text-white',
-                href: '#dates',
+                href: '/key-dates',
               },
             ].map((card, i) => (
               <a
@@ -305,49 +298,6 @@ export default function CFP() {
             </Card>
           </FadeIn>
 
-        </div>
-      </section>
-
-      {/* ═══ KEY DATES ═══ */}
-      <section id="dates" className="py-16 sm:py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-5 sm:px-8">
-          <div className="max-w-3xl mb-10">
-            <FadeIn>
-              <SectionLabel label="Timeline" />
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#243B6B] tracking-tight mb-2">
-                Key Dates (AoE)
-              </h2>
-            </FadeIn>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {dates.map((d, idx) => (
-              <FadeIn key={idx} delay={idx * 0.08}>
-                <Card 
-                  className={`h-full p-5 border ${
-                    d.isHighlight 
-                      ? 'bg-[#243B6B] text-white border-[#243B6B]' 
-                      : 'bg-[#FAFBFD] border-gray-200'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <Calendar className={`w-4 h-4 ${d.isHighlight ? 'text-[#F2B84B]' : 'text-[#159A9C]'}`} />
-                    <Badge variant={d.isHighlight ? "gold" : "outline"} className="text-[10px]">
-                      {d.status}
-                    </Badge>
-                  </div>
-
-                  <h3 className={`font-semibold text-xs mb-1 ${d.isHighlight ? 'text-white/80' : 'text-[#556275]'}`}>
-                    {d.label}
-                  </h3>
-
-                  <div className={`text-base sm:text-lg font-bold font-display mb-1 ${d.isHighlight ? 'text-[#F2B84B]' : 'text-[#243B6B]'}`}>
-                    {d.value}
-                  </div>
-                </Card>
-              </FadeIn>
-            ))}
-          </div>
         </div>
       </section>
 

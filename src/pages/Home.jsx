@@ -5,12 +5,10 @@ import {
   UserCheck, 
   GraduationCap, 
   Accessibility, 
-  MonitorSmartphone, 
   ShieldCheck, 
   Globe2, 
   Users2, 
   Network, 
-  Compass, 
   Calendar, 
   MapPin, 
   Clock, 
@@ -19,8 +17,7 @@ import {
   Presentation, 
   ExternalLink,
   Sparkles,
-  CheckCircle2,
-  BookOpen
+  CheckCircle2
 } from 'lucide-react'
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/Motion'
 import SectionLabel from '../components/SectionLabel'
@@ -32,76 +29,14 @@ import { Card, CardContent } from '../components/ui/card'
 import ContentEnclosure from '../components/ContentEnclosure'
 
 const topics = [
-  { 
-    icon: Bot, 
-    title: 'Agentic AI and multi-agent systems for inclusive K–12 education', 
-    desc: 'Autonomous coordinated agents facilitating inclusive K–12 classroom contexts.' 
-  },
-  { 
-    icon: UserCheck, 
-    title: 'Teacher agency, AI autonomy, and human oversight', 
-    desc: 'Preserving human authority, intentional pedagogical choices, and supervision.' 
-  },
-  { 
-    icon: GraduationCap, 
-    title: 'AI-supported differentiated instruction and personalised learning', 
-    desc: 'Adaptive instruction addressing distinct learner pacing, cognitive styles, and needs.' 
-  },
-  { 
-    icon: Accessibility, 
-    title: 'Accessible learning-resource development for learners with SLDs', 
-    desc: 'Curricula and multi-sensory materials tailored for dyslexia, dyscalculia, and dysgraphia.' 
-  },
-  { 
-    icon: MonitorSmartphone, 
-    title: 'Human–AI interaction in special and inclusive education', 
-    desc: 'Natural, accessible, and intuitive interfaces designed alongside specialist practitioners.' 
-  },
-  { 
-    icon: Users2, 
-    title: 'Teacher-centred and participatory co-design approaches', 
-    desc: 'Centering teachers from ideation to evaluation in genuine peer co-creation workflows.' 
-  },
-  { 
-    icon: BookOpen, 
-    title: 'AI-supported instructional planning and classroom workflows', 
-    desc: 'Pragmatic agentic support reducing administrative burdens and lesson preparation friction.' 
-  },
-  { 
-    icon: ShieldCheck, 
-    title: 'Responsible, transparent, and accountable educational AI', 
-    desc: 'Safeguarding ethics, safety, explainability, and pedagogical integrity.' 
-  },
-  { 
-    icon: Accessibility, 
-    title: 'Accessibility, usability, and inclusive technology design', 
-    desc: 'Universal design principles ensuring seamless access across diverse abilities.' 
-  },
-  { 
-    icon: Globe2, 
-    title: 'Context-sensitive AI design for low-resource educational settings', 
-    desc: 'Hardware frugality, low-bandwidth resilience, device sharing, and offline sustainability.' 
-  },
-  { 
-    icon: Globe2, 
-    title: 'Affordability, limited connectivity, infrastructure constraints, and sustainability', 
-    desc: 'Real-world deployment feasibility within resource-constrained schools.' 
-  },
-  { 
-    icon: CheckCircle2, 
-    title: 'Teacher-informed evaluation of AI-supported educational systems', 
-    desc: 'Rigorous empirical evaluation driven by classroom realities and teacher feedback.' 
-  },
-  { 
-    icon: Network, 
-    title: 'Collaboration across AI, HCI, special education, and teacher education', 
-    desc: 'Unifying technical creators, pedagogical experts, and front-line educators.' 
-  },
-  { 
-    icon: Compass, 
-    title: 'Research frameworks and design principles for human-centred agentic AI in inclusive education', 
-    desc: 'Establishing sustainable theoretical and practical foundations.' 
-  },
+  { icon: Bot, title: 'Agentic AI and multi-agent systems for inclusive education.' },
+  { icon: UserCheck, title: 'Teacher agency, human oversight, and AI autonomy.' },
+  { icon: GraduationCap, title: 'AI-supported differentiated instruction and accessible learning resources.' },
+  { icon: Users2, title: 'Human–AI interaction and participatory co-design.' },
+  { icon: ShieldCheck, title: 'Responsible, trustworthy, and ethical AI in education.' },
+  { icon: Accessibility, title: 'AI for learners with dyslexia, dyscalculia, and dysgraphia.' },
+  { icon: Globe2, title: 'AI implementation in low-resource educational settings.' },
+  { icon: CheckCircle2, title: 'Accessibility, evaluation, affordability, and sustainability of AI-supported solutions.' },
 ]
 
 const formatItems = [
@@ -158,7 +93,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm font-semibold tracking-wide text-white mb-6"
               >
                 <span className="w-2 h-2 rounded-full bg-[#F2B84B]" />
-                <span className="font-bold text-[#F2B84B]">BRIDGE 21</span>
+                <span className="font-bold text-[#F2B84B]">Bridge Program</span>
                 <span className="text-white/40">|</span>
                 <span className="text-white/90">AAAI-27</span>
               </motion.div>
@@ -245,7 +180,7 @@ export default function Home() {
               >
                 <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                   <div>
-                    <span className="text-[11px] font-mono text-[#F2B84B] uppercase tracking-wider block">Bridge 21</span>
+                    <span className="text-[11px] font-mono text-[#F2B84B] uppercase tracking-wider block">Bridge Program</span>
                     <h2 className="text-base font-bold text-white">AI for Inclusive Education</h2>
                   </div>
                   <div className="flex gap-1.5">
@@ -307,15 +242,12 @@ export default function Home() {
                 What to Expect on This Page
               </h2>
             </div>
-            <p className="text-xs sm:text-sm text-[#556275] max-w-md">
-              Everything you need to know about the AAAI-27 Bridge Program before diving into the details:
-            </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3 pt-2">
             {[
               { num: '01', title: 'Overview', href: '#overview', desc: 'Core rationale & goals' },
-              { num: '02', title: 'Topics', href: '#topics', desc: '14 research themes' },
+              { num: '02', title: 'Topics', href: '#topics', desc: '8 research themes' },
               { num: '03', title: 'Format', href: '#format', desc: 'Half-day structure' },
               { num: '04', title: 'Attend', href: '#attend', desc: '30–50 participants' },
               { num: '05', title: 'Submit', href: '#submit', desc: 'Papers, demos & CFP' },
@@ -354,7 +286,7 @@ export default function Home() {
       <TracingBeam className="px-6">
         
         {/* ═══ OVERVIEW ═══ */}
-        <section id="overview" className="py-20 sm:py-24">
+        <section id="overview" className="py-16 sm:py-20">
           <div className="max-w-5xl mx-auto">
             <div className="max-w-3xl mb-8">
               <FadeIn>
@@ -409,9 +341,6 @@ export default function Home() {
                         <h3 className="font-bold text-[#243B6B] text-sm leading-snug mb-1">
                           {t.title}
                         </h3>
-                        <p className="text-xs text-[#556275] leading-relaxed">
-                          {t.desc}
-                        </p>
                       </div>
                     </Card>
                   </StaggerItem>
@@ -549,7 +478,7 @@ export default function Home() {
                 </p>
                 <div>
                   <a
-                    href="#"
+                    href="AAAI Registration Site: https://aaai.org/conference/aaai/aaai-27/aaai-27-registration/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

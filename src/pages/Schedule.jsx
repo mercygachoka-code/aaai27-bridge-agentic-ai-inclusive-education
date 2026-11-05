@@ -80,7 +80,7 @@ export default function Schedule() {
       className="overflow-hidden"
     >
       <PageHero
-        badge="Bridge 21"
+        badge="Bridge Program"
         title="Schedule"
         subtitle="Tentative Schedule – Half-Day"
       />

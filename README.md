@@ -1,4 +1,4 @@
-# Bridge 21: AI for Inclusive Education
+# Bridge Program: AI for Inclusive Education
 ## AAAI-27 Bridge Program (16–17 February 2027, Montréal, Canada)
 
 **Title:** Co-Designing Agentic AI with K–12 Teachers Supporting Learners with Specific Learning Disorders in Low-Resource Settings

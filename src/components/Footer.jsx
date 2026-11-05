@@ -8,12 +8,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded bg-[#243B6B] flex items-center justify-center">
-                <span className="text-[#F2B84B] font-bold text-xs">21</span>
+              <div className="w-auto min-w-8 h-8 px-1.5 rounded bg-[#243B6B] flex items-center justify-center">
+                <span className="text-[#F2B84B] font-bold text-[10px]">AAAI-27</span>
               </div>
               <div>
-                <span className="font-bold text-white text-sm">BRIDGE 21</span>
-                <span className="text-white/50 text-xs ml-1.5">AAAI-27</span>
+                <span className="font-bold text-white text-sm">Bridge Program</span>
               </div>
             </div>
             <p className="text-xs text-white/60 leading-relaxed font-display italic">
@@ -28,6 +27,7 @@ export default function Footer() {
               {[
                 { to: '/', label: 'Home' },
                 { to: '/cfp', label: 'Call for Participation' },
+                { to: '/key-dates', label: 'Key Dates' },
                 { to: '/schedule', label: 'Schedule' },
                 { to: '/committee', label: 'Committee' },
               ].map(({ to, label }) => (
