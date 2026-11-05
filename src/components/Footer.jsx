@@ -55,7 +55,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-white/10 text-center">
           <p className="text-xs text-white/40">
-            &copy; 2026 Co-Designing Agentic AI Bridge for Inclusive Learning. 
+            &copy; 2026 Co-Designing Agentic AI for Inclusive Learning. 
           </p>
         </div>
       </div>

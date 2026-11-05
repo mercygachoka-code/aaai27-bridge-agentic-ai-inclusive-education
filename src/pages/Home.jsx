@@ -483,7 +483,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                   >
                     <Button variant="secondary" className="gap-2">
-                      <span>[AAAI-27 Registration & More Information – link to be added]</span>
+                      <span>AAAI-27 Registration & More Information</span>
                       <ExternalLink className="w-4 h-4" />
                     </Button>
                   </a>
