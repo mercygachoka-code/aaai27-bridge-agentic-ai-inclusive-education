@@ -30,6 +30,7 @@ export default function Footer() {
                 { to: '/key-dates', label: 'Key Dates' },
                 { to: '/schedule', label: 'Schedule' },
                 { to: '/committee', label: 'Committee' },
+                { to: '/keynote', label: 'Keynote' },
               ].map(({ to, label }) => (
                 <li key={to}>
                   <Link to={to} className="text-white/60 hover:text-[#F2B84B] transition-colors">
