@@ -15,7 +15,6 @@ import {
   ArrowRight, 
   FileText, 
   Presentation, 
-  ExternalLink,
   Sparkles,
   CheckCircle2
 } from 'lucide-react'
@@ -458,35 +457,6 @@ export default function Home() {
                       <ArrowRight className="w-4 h-4" />
                     </Button>
                   </Link>
-                </div>
-              </Card>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* ═══ REGISTER ═══ */}
-        <section id="register" className="pt-10 sm:pt-12 pb-16 sm:pb-20">
-          <div className="max-w-5xl mx-auto">
-            <FadeIn>
-              <Card className="p-8 sm:p-12 border-gray-200 bg-[#FAFBFD]">
-                <SectionLabel label="Conference Registration" />
-                <h2 className="text-2xl sm:text-3xl font-display font-bold text-[#243B6B] mb-4">
-                  Register
-                </h2>
-                <p className="text-[#556275] text-base leading-relaxed mb-6">
-                  Registration for AAAI-27 is managed centrally by AAAI.
-                </p>
-                <div>
-                  <a
-                    href="AAAI Registration Site: https://aaai.org/conference/aaai/aaai-27/aaai-27-registration/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="secondary" className="gap-2">
-                      <span>AAAI-27 Registration & More Information</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </Button>
-                  </a>
                 </div>
               </Card>
             </FadeIn>
